@@ -1,0 +1,84 @@
+@font-face {
+    font-family: "IranYekanWeb";
+    src: url("fonts/iran-yekan/IranYekanWeb-Light.woff") format("woff");
+    font-weight: 300;
+    font-style: normal;
+    /* light */
+}
+
+@font-face {
+    font-family: "IranYekanWeb";
+    src: url("fonts/iran-yekan/IranYekanWeb-Regular.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+    /* regular */
+}
+
+@font-face {
+    font-family: "IranYekanWeb";
+    src: url("fonts/iran-yekan/IranYekanWeb-Medium.woff") format("woff");
+    font-weight: 500;
+    font-style: normal;
+    /* medium */
+}
+
+@font-face {
+    font-family: "IranYekanWeb";
+    src: url("fonts/iran-yekan/IranYekanWeb-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    /* bold */
+}
+
+@font-face {
+    font-family: "IranYekanWeb";
+    src: url("fonts/iran-yekan/IranYekanWeb-ExtraBold.woff") format("woff");
+    font-weight: 900;
+    font-style: normal;
+    /* heavy */
+}
+
+::selection {
+    background: #0E4663;
+    color:white;
+}
+::-moz-selection {
+    background: #0E4663;
+    color:white;
+}
+
+/*
+More Template Custom CSS Here...
+ */
+body{
+    font-family: 'IranYekanWeb', tahoma, serif;
+}
+
+.container-standard {
+    max-width: min(90%,70rem);
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  @media only screen and (max-width: 640px) {
+    .container-standard-mobile-full-width {
+      max-width: 100%;
+    }
+  }
+
+ 
+
+.button5{
+  @apply relative overflow-hidden flex gap-2 items-center justify-center  bg-primary text-white py-2 px-5
+  after:w-0 after:h-full after:bg-primary-900 after:absolute after:right-0 after:transition-all after:duration-500  after:ease-in-out after:left-0
+  after:hover:right-auto after:hover:left-0 after:hover:w-full;
+}
+
+
+#heroSwiperPagination .swiper-pagination-bullet{
+  @apply w-10 lg:w-14 h-[3px] lg:h-1 rounded-none opacity-100 bg-primary-50;
+}
+
+#heroSwiperPagination .swiper-pagination-bullet-active{
+  @apply bg-primary;
+}
