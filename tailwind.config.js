@@ -61,6 +61,7 @@ module.exports = {
           700: '#58585A',
           800: '#404041',
         },
+        'representation-bg': '#25232440',
       }
     },
   },

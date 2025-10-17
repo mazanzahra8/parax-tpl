@@ -1,42 +1,68 @@
 @font-face {
-    font-family: "IranYekanWeb";
-    src: url("fonts/iran-yekan/IranYekanWeb-Light.woff") format("woff");
-    font-weight: 300;
-    font-style: normal;
-    /* light */
+  font-family: Lahzeh;
+  src: url('fonts/lahzeh/Lahzeh-Thin.ttf');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Lahzeh;
+  src: url('fonts/lahzeh/Lahzeh-ExtraLight.ttf');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Lahzeh;
+  src: url('fonts/lahzeh/Lahzeh-Light.ttf');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Lahzeh;
+  src: url('fonts/lahzeh/Lahzeh-Regular.ttf');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Lahzeh;
+  src: url('fonts/lahzeh/Lahzeh-Medium.ttf');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Lahzeh;
+  src: url('fonts/lahzeh/Lahzeh-SemiBold.ttf');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Lahzeh;
+  src: url('fonts/lahzeh/Lahzeh-Bold.ttf');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Lahzeh;
+  src: url('fonts/lahzeh/Lahzeh-ExtraBold.ttf');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Lahzeh;
+  src: url('fonts/lahzeh/Lahzeh-Black.ttf');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
 }
 
-@font-face {
-    font-family: "IranYekanWeb";
-    src: url("fonts/iran-yekan/IranYekanWeb-Regular.woff") format("woff");
-    font-weight: 400;
-    font-style: normal;
-    /* regular */
-}
 
-@font-face {
-    font-family: "IranYekanWeb";
-    src: url("fonts/iran-yekan/IranYekanWeb-Medium.woff") format("woff");
-    font-weight: 500;
-    font-style: normal;
-    /* medium */
-}
-
-@font-face {
-    font-family: "IranYekanWeb";
-    src: url("fonts/iran-yekan/IranYekanWeb-Bold.woff2") format("woff2");
-    font-weight: 700;
-    font-style: normal;
-    /* bold */
-}
-
-@font-face {
-    font-family: "IranYekanWeb";
-    src: url("fonts/iran-yekan/IranYekanWeb-ExtraBold.woff") format("woff");
-    font-weight: 900;
-    font-style: normal;
-    /* heavy */
-}
 
 ::selection {
     background: #0E4663;
@@ -51,11 +77,17 @@
 More Template Custom CSS Here...
  */
 body{
-    font-family: 'IranYekanWeb', tahoma, serif;
+    font-family: 'Lahzeh', tahoma, serif;
 }
 
 .container-standard {
     max-width: min(90%,70rem);
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .container-standard-wide {
+    max-width: min(100%,85rem);
     margin-right: auto;
     margin-left: auto;
   }
@@ -81,4 +113,42 @@ body{
 
 #heroSwiperPagination .swiper-pagination-bullet-active{
   @apply bg-primary;
+}
+
+.glassBox{
+  @apply rounded-full size-24 lg:size-32 backdrop-blur overflow-hidden relative flex items-center justify-center bg-representation-bg;
+}
+
+
+.glassBox::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: 9999px;
+  background: linear-gradient( #96979B26, #231F2080,#231F2080, #96979B26);
+  -webkit-mask: linear-gradient(white, white) content-box, linear-gradient(white, white);
+   mask: linear-gradient(white, white) content-box, linear-gradient(white, white);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+}
+
+
+
+.cirBox{
+  @apply relative rounded-full bg-primary-900 flex items-center justify-center size-20 z-[1] -translate-x-10;
+}
+
+
+.cirBox::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 3px;
+  border-radius: 9999px;
+  background: linear-gradient(230deg ,#1BC9E2, #FFFFFF00, #A020F0);
+  -webkit-mask: linear-gradient(white, white) content-box, linear-gradient(white, white);
+   mask: linear-gradient(white, white) content-box, linear-gradient(white, white);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
 }
