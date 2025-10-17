@@ -12,6 +12,8 @@ import 'swiper/css/autoplay';
 import 'swiper/css/free-mode';
 Swiper.use([Navigation, Pagination, Grid, Autoplay, Thumbs, EffectCards, FreeMode ,EffectCoverflow]);
 window.Swiper = Swiper
+import PureCounter from "@srexi/purecounterjs";
+window.PureCounter = PureCounter;
 
 // Alpinejs
 import Alpine from 'alpinejs';

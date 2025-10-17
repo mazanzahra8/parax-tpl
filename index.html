@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>گروه معماری آرمان</title>
+  <title> نوین چوب</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/app.css" />
   <link rel="stylesheet" href="css/fontawesome-all.min.css" />
@@ -423,7 +423,7 @@
               });
           }
       }"
-        class="w-full  pr-5 md:pr-10 lg:pr-16 xl:pr-28">
+        class="w-full pr-5 md:pr-10 lg:pr-16 xl:pr-28">
           <div class="swiper" x-ref="representationSwiper">
             <div class="swiper-wrapper">
               <div class="swiper-slide">
@@ -529,11 +529,89 @@
      </section>
 
      
-     <section class="bg-secondary/20">
+     <section class="bg-secondary/20 h-screen flex items-center">
       <div class="container-standard">
-        <div class="flex items-center">
-          <div class="flex flex-col ">
-            <div class="flex flex-col items-center gap-4">
+        <div class="flex flex-col-reverse lg:flex-row items-center gap-24">
+          <div class="w-full lg:w-1/2">
+            <div x-data="{
+              init() {
+                  this.$nextTick(() => {
+                      new PureCounter({
+                          selector: '.purecounter',
+                          formater: 'fa-IR'
+                      });
+                  });
+              }
+          }"
+            class="grid grid-cols-2 gap-x-10 gap-y-20">
+              <div class="flex flex-col items-center gap-3">
+                <div class="flex items-center gap-3 text-primary-400">
+                  <div class="flex text-xl lg:text-2xl font-semibold">
+                  <span class="purecounter" data-purecounter-start="0" data-purecounter-end="1000">
+                    &nbsp;
+                  </span>
+                  <span>
+                    +
+                  </span>
+                  </div>
+                  <i class="fal fa-th-large text-primary-400 text-2xl"></i>
+                </div>
+                <span class="text-base lg:text-lg font-medium text-center text-primary-50">
+                  تنوع کابینت‌های اجرایی
+                </span>
+              </div>
+              <div class="flex flex-col items-center gap-3">
+                <div class="flex items-center gap-3 text-primary-400">
+                  <div class="flex text-xl lg:text-2xl font-semibold">
+                  <span class="purecounter" data-purecounter-start="0" data-purecounter-end="200">
+                    &nbsp;
+                  </span>
+                  <span>
+                    +
+                  </span>
+                  </div>
+                  <i class="fal fa-clipboard-check text-primary-400 text-2xl"></i>
+                </div>
+                <span class="text-base lg:text-lg font-medium text-center text-primary-50">
+                  پروژه های انجام شده
+                </span>
+              </div>
+              <div class="flex flex-col items-center gap-3">
+                <div class="flex items-center gap-3 text-primary-400">
+                  <div class="flex text-xl lg:text-2xl font-semibold">
+                  <span class="purecounter" data-purecounter-start="0" data-purecounter-end="50">
+                    &nbsp;
+                  </span>
+                  <span>
+                    +
+                  </span>
+                  </div>
+                  <i class="fal fa-pencil-ruler text-primary-400 text-2xl"></i>
+                </div>
+                <span class="text-base lg:text-lg font-medium text-center text-primary-50">
+                  طراح حرفه‌ای
+                </span>
+              </div>
+              <div class="flex flex-col items-center gap-3">
+                <div class="flex items-center gap-3 text-primary-400">
+                  <div class="flex text-xl lg:text-2xl font-semibold">
+                  <span class="purecounter" data-purecounter-start="0" data-purecounter-end="1000">
+                    &nbsp;
+                  </span>
+                  <span>
+                    +
+                  </span>
+                  </div>
+                  <i class="fal fa-star text-primary-400 text-xl"></i>
+                </div>
+                <span class="text-base lg:text-lg font-medium text-center text-primary-50">
+                  سال تجربه
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="w-full lg:w-1/2 flex flex-col gap-10 shrink-0">
+            <div class="flex flex-col gap-4">
               <h2 class="font-bold text-primary text-xl lg:text-3xl">
                 دستاوردهای ما
               </h2>
@@ -541,6 +619,9 @@
                 آمارهایی که کیفیت را تضمین می‌کنند
               </p>
             </div>
+            <p class="font-extralight text-lg lg:text-xl lg:leading-8 text-gray-100">
+              سال‌ها تجربه، صدها پروژه موفق و رضایت مشتریان گواه مسیر حرفه‌ای ماست. در این سال‌ها، تلاش کردیم تا با اجرای دقیق، طراحی مدرن و استفاده از بهترین متریال، رؤیای آشپزخانه‌ای زیبا و کاربردی را برای شما محقق کنیم. آمار بیان شده تنها بخشی از نتایج اعتماد شماست.
+            </p>
           </div>
         </div>
       </div>
@@ -548,320 +629,304 @@
       
 
     <!-- BLOG SECTION -->
-    <section class="container-standard container-standard-mobile-full-width mb-32">
-      <div x-data="{
-        init() {
-            this.$nextTick(() => {
-              new Swiper($refs.blogSwiper, {
-                slidesPerView: 1.3,
-                loop: true,
-                spaceBetween: 16,
-                breakpoints: {
-                  480: {
-                    slidesPerView: 2,
+    <section class="flex items-center h-screen">
+      <div class="container-standard-mobile-full-width overflow-hidden">
+        <div x-data="{
+          init() {
+              this.$nextTick(() => {
+                new Swiper($refs.blogSwiper, {
+                  slidesPerView: 1.3,
+                  loop: true,
+                  spaceBetween: 16,
+                  breakpoints: {
+                    480: {
+                      slidesPerView: 2,
+                    },
+                    768: {
+                      slidesPerView: 2.9,
+                    },
+                    1024: {
+                      slidesPerView: 3.8,
+                    },
+                    1280: {
+                      slidesPerView: 4.3,
+                    },
                   },
-                  768: {
-                    slidesPerView: 2.3,
-                  },
-                  1024: {
-                    slidesPerView: 3,
-                  },
-                  1280: {
-                    slidesPerView: 4,
-                  },
-                },
-                navigation: {
-                  nextEl: $refs.blogSwiperNext,
-                  prevEl: $refs.blogSwiperPrev,
-                }
-              });
-          });
-        }
-    }"  
-        class="flex flex-col items-center gap-8">
-        <h2 class="font-semibold text-xl lg:text-2xl text-white">
-          مقالات
-        </h2>
-        <div class="w-full">
-          <div class="swiper" x-ref="blogSwiper">
-            <div class="swiper-wrapper pr-5 lg:pr-0 pb-10">
-              <div class="swiper-slide">
-                <div class="flex flex-col gap-2 text-white">
-                  <a href="#" class="flex justify-center">
-                    <div  class="relative overflow-hidden w-full group">
-                      <img src="images/blog1.png" alt="" class="max-w-full block transition-all duration-500 ease-in-out object-cover rounded">
+                });
+            });
+          }
+      }"  
+          class="flex flex-col items-center gap-16">
+          <div class="flex flex-col items-center gap-4">
+            <h2 class="font-bold text-primary text-xl lg:text-3xl">
+              مجله آنلاین
+            </h2>
+            <p class="text-base lg:text-xl font-light text-gray-50">
+              محتوای تخصصی در طراحی آشپزخانه
+            </p>
+          </div>
+          <div class="w-full pr-5 md:pr-10 lg:pr-16 xl:pr-28">
+            <div class="swiper !flex !h-full" x-ref="blogSwiper">
+              <div class="swiper-wrapper !h-auto">
+                <div class="swiper-slide !h-full">
+                  <div class="h-full group flex flex-col bg-secondary/20 border border-secondary-500/10 pb-5 gap-2 text-gray-200">
+                    <a href="#" class="absolute inset-0 z-[1]"></a>
+                    <div class="relative flex justify-center">
+                      <img src="images/blog1.webp" alt="" class="max-w-full aspect-[303/285] lg:aspect-[303/227] block transition-all duration-500 ease-in-out object-cover">
                       <div class="absolute w-0 h-0 bg-white transition-all duration-500 ease-in-out top-[5%] left-1/2 group-hover:left-[5%] group-hover:w-[90%] group-hover:h-[1px]"></div>
                       <div class="absolute w-0 h-0 bg-white transition-all duration-500 ease-in-out bottom-[5%] left-1/2 group-hover:left-[5%] group-hover:w-[90%] group-hover:h-[1px]"></div>
                       <div class="absolute w-0 h-0 bg-white transition-all duration-500 ease-in-out top-1/2 left-[5%] group-hover:top-[5%] group-hover:w-[1px] group-hover:h-[90%]"></div>
                       <div class="absolute w-0 h-0 bg-white transition-all duration-500 ease-in-out top-1/2 right-[5%] group-hover:top-[5%] group-hover:w-[1px] group-hover:h-[90%]"></div>
                     </div>
-                  </a>
-                  <div class="relative flex flex-col gap-3 px-2">
-                    <a href="#" class="absolute inset-0"></a>
-                    <div class="flex gap-10">
-                      <div class="flex gap-1 text-xs font-ligh">
-                        <i class="fal fa-th-large"></i>
-                        <p>
-                          دکوراسیون داخلی
-                        </p>
-                      </div>
-                      <div class="flex gap-1 text-xs font-light">
-                        <i class="fal fa-clock"></i>
-                        <p>
-                          ۱۲ دقیقه
-                        </p>
-                      </div>
-                    </div>
-                    <h3 class="text-base font-semibold mt-2">
-                      بازسازی خانه کوچک و آپارتمان با متراژ کم با کمترین هزینه
+                    <h3 class="text-base mt-2 mx-2 line-clamp-2">
+                      تعریف پاراکس از کابینت وکیوم چیست؟
                     </h3>
                   </div>
                 </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="flex flex-col gap-2 text-white">
-                  <a href="#" class="flex justify-center">
-                    <div  class="relative overflow-hidden w-full group">
-                      <img src="images/blog2.png" alt="" class="max-w-full block transition-all duration-500 ease-in-out object-cover rounded">
+                <div class="swiper-slide !h-full">
+                  <div class="h-full group flex flex-col bg-secondary/20 border border-secondary-500/10 pb-5 gap-2 text-gray-200">
+                    <a href="#" class="absolute inset-0 z-[1]"></a>
+                    <div class="relative flex justify-center">
+                      <img src="images/blog2.webp" alt="" class="max-w-full aspect-[303/285] lg:aspect-[303/227] block transition-all duration-500 ease-in-out object-cover">
                       <div class="absolute w-0 h-0 bg-white transition-all duration-500 ease-in-out top-[5%] left-1/2 group-hover:left-[5%] group-hover:w-[90%] group-hover:h-[1px]"></div>
                       <div class="absolute w-0 h-0 bg-white transition-all duration-500 ease-in-out bottom-[5%] left-1/2 group-hover:left-[5%] group-hover:w-[90%] group-hover:h-[1px]"></div>
                       <div class="absolute w-0 h-0 bg-white transition-all duration-500 ease-in-out top-1/2 left-[5%] group-hover:top-[5%] group-hover:w-[1px] group-hover:h-[90%]"></div>
                       <div class="absolute w-0 h-0 bg-white transition-all duration-500 ease-in-out top-1/2 right-[5%] group-hover:top-[5%] group-hover:w-[1px] group-hover:h-[90%]"></div>
                     </div>
-                  </a>
-                  <div class="relative flex flex-col gap-3 px-2">
-                    <a href="#" class="absolute inset-0"></a>
-                    <div class="flex gap-10">
-                      <div class="flex gap-1 text-xs font-ligh">
-                        <i class="fal fa-th-large"></i>
-                        <p>
-                          دکوراسیون داخلی
-                        </p>
-                      </div>
-                      <div class="flex gap-1 text-xs font-light">
-                        <i class="fal fa-clock"></i>
-                        <p>
-                          ۱۲ دقیقه
-                        </p>
-                      </div>
-                    </div>
-                    <h3 class="text-base font-semibold mt-2">
-                      بازسازی خانه کوچک و آپارتمان با متراژ کم با کمترین هزینه
+                    <h3 class="text-base mt-2 mx-2 line-clamp-2">
+                      کابینت مینیمال و ناگفته‌هایی از آن
                     </h3>
                   </div>
                 </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="flex flex-col gap-2 text-white">
-                  <a href="#" class="flex justify-center">
-                    <div  class="relative overflow-hidden w-full group">
-                      <img src="images/blog1.png" alt="" class="max-w-full block transition-all duration-500 ease-in-out object-cover rounded">
+                <div class="swiper-slide !h-full">
+                  <div class="h-full group flex flex-col bg-secondary/20 border border-secondary-500/10 pb-5 gap-2 text-gray-200">
+                    <a href="#" class="absolute inset-0 z-[1]"></a>
+                    <div class="relative flex justify-center">
+                      <img src="images/blog3.webp" alt="" class="max-w-full aspect-[303/285] lg:aspect-[303/227] block transition-all duration-500 ease-in-out object-cover">
                       <div class="absolute w-0 h-0 bg-white transition-all duration-500 ease-in-out top-[5%] left-1/2 group-hover:left-[5%] group-hover:w-[90%] group-hover:h-[1px]"></div>
                       <div class="absolute w-0 h-0 bg-white transition-all duration-500 ease-in-out bottom-[5%] left-1/2 group-hover:left-[5%] group-hover:w-[90%] group-hover:h-[1px]"></div>
                       <div class="absolute w-0 h-0 bg-white transition-all duration-500 ease-in-out top-1/2 left-[5%] group-hover:top-[5%] group-hover:w-[1px] group-hover:h-[90%]"></div>
                       <div class="absolute w-0 h-0 bg-white transition-all duration-500 ease-in-out top-1/2 right-[5%] group-hover:top-[5%] group-hover:w-[1px] group-hover:h-[90%]"></div>
                     </div>
-                  </a>
-                  <div class="relative flex flex-col gap-3 px-2">
-                    <a href="#" class="absolute inset-0"></a>
-                    <div class="flex gap-10">
-                      <div class="flex gap-1 text-xs font-ligh">
-                        <i class="fal fa-th-large"></i>
-                        <p>
-                          دکوراسیون داخلی
-                        </p>
-                      </div>
-                      <div class="flex gap-1 text-xs font-light">
-                        <i class="fal fa-clock"></i>
-                        <p>
-                          ۱۲ دقیقه
-                        </p>
-                      </div>
-                    </div>
-                    <h3 class="text-base font-semibold mt-2">
-                      بازسازی خانه کوچک و آپارتمان با متراژ کم با کمترین هزینه
+                    <h3 class="text-base mt-2 mx-2 line-clamp-2">
+                      سر از کار انواع صفحه کابینت در بیاوریم؟
                     </h3>
                   </div>
                 </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="flex flex-col gap-2 text-white">
-                  <a href="#" class="flex justify-center">
-                    <div  class="relative overflow-hidden w-full group">
-                      <img src="images/blog2.png" alt="" class="max-w-full block transition-all duration-500 ease-in-out object-cover rounded">
+                <div class="swiper-slide !h-full">
+                  <div class="h-full group flex flex-col bg-secondary/20 border border-secondary-500/10 pb-5 gap-2 text-gray-200">
+                    <a href="#" class="absolute inset-0 z-[1]"></a>
+                    <div class="relative flex justify-center">
+                      <img src="images/blog4.webp" alt="" class="max-w-full aspect-[303/285] lg:aspect-[303/227] block transition-all duration-500 ease-in-out object-cover">
                       <div class="absolute w-0 h-0 bg-white transition-all duration-500 ease-in-out top-[5%] left-1/2 group-hover:left-[5%] group-hover:w-[90%] group-hover:h-[1px]"></div>
                       <div class="absolute w-0 h-0 bg-white transition-all duration-500 ease-in-out bottom-[5%] left-1/2 group-hover:left-[5%] group-hover:w-[90%] group-hover:h-[1px]"></div>
                       <div class="absolute w-0 h-0 bg-white transition-all duration-500 ease-in-out top-1/2 left-[5%] group-hover:top-[5%] group-hover:w-[1px] group-hover:h-[90%]"></div>
                       <div class="absolute w-0 h-0 bg-white transition-all duration-500 ease-in-out top-1/2 right-[5%] group-hover:top-[5%] group-hover:w-[1px] group-hover:h-[90%]"></div>
                     </div>
-                  </a>
-                  <div class="relative flex flex-col gap-3 px-2">
-                    <a href="#" class="absolute inset-0"></a>
-                    <div class="flex gap-10">
-                      <div class="flex gap-1 text-xs font-ligh">
-                        <i class="fal fa-th-large"></i>
-                        <p>
-                          دکوراسیون داخلی
-                        </p>
-                      </div>
-                      <div class="flex gap-1 text-xs font-light">
-                        <i class="fal fa-clock"></i>
-                        <p>
-                          ۱۲ دقیقه
-                        </p>
-                      </div>
-                    </div>
-                    <h3 class="text-base font-semibold mt-2">
-                      بازسازی خانه کوچک و آپارتمان با متراژ کم با کمترین هزینه
+                    <h3 class="text-base mt-2 mx-2 line-clamp-2">
+                      راهنمای قدم به قدم کابینت لوکس، عناصر و ویژگی ها
                     </h3>
                   </div>
                 </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="flex flex-col gap-2 text-white">
-                  <a href="#" class="flex justify-center">
-                    <div  class="relative overflow-hidden w-full group">
-                      <img src="images/blog2.png" alt="" class="max-w-full block transition-all duration-500 ease-in-out object-cover rounded">
+                <div class="swiper-slide !h-full">
+                  <div class="group flex h-full flex-col bg-secondary/20 border border-secondary-500/10 pb-5 gap-2 text-gray-200">
+                    <a href="#" class="absolute inset-0 z-[1]"></a>
+                    <div class="relative flex justify-center">
+                      <img src="images/blog4.webp" alt="" class="max-w-full aspect-[303/285] lg:aspect-[303/227] block transition-all duration-500 ease-in-out object-cover">
                       <div class="absolute w-0 h-0 bg-white transition-all duration-500 ease-in-out top-[5%] left-1/2 group-hover:left-[5%] group-hover:w-[90%] group-hover:h-[1px]"></div>
                       <div class="absolute w-0 h-0 bg-white transition-all duration-500 ease-in-out bottom-[5%] left-1/2 group-hover:left-[5%] group-hover:w-[90%] group-hover:h-[1px]"></div>
                       <div class="absolute w-0 h-0 bg-white transition-all duration-500 ease-in-out top-1/2 left-[5%] group-hover:top-[5%] group-hover:w-[1px] group-hover:h-[90%]"></div>
                       <div class="absolute w-0 h-0 bg-white transition-all duration-500 ease-in-out top-1/2 right-[5%] group-hover:top-[5%] group-hover:w-[1px] group-hover:h-[90%]"></div>
                     </div>
-                  </a>
-                  <div class="relative flex flex-col gap-3 px-2">
-                    <a href="#" class="absolute inset-0"></a>
-                    <div class="flex gap-10">
-                      <div class="flex gap-1 text-xs font-ligh">
-                        <i class="fal fa-th-large"></i>
-                        <p>
-                          دکوراسیون داخلی
-                        </p>
-                      </div>
-                      <div class="flex gap-1 text-xs font-light">
-                        <i class="fal fa-clock"></i>
-                        <p>
-                          ۱۲ دقیقه
-                        </p>
-                      </div>
-                    </div>
-                    <h3 class="text-base font-semibold mt-2">
-                      بازسازی خانه کوچک و آپارتمان با متراژ کم با کمترین هزینه
+                    <h3 class="text-base mt-2 mx-2 line-clamp-2">
+                      راهنمای قدم به قدم کابینت لوکس، عناصر و ویژگی ها
                     </h3>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+          <a href="#" class="flex flex-col gap-1 items-end">
+            <div class="flex gap-2 items-center justify-center border border-primary-50 text-primary-50 py-2 px-5">
+              <span class="z-[2]">
+                مشاهده همه
+              </span>
+              <i class="fal fa-arrow-left z-[2]"></i>
+            </div>
+            <div class="h-[1px] w-2/3 lg:w-1/3 bg-primary-50"></div>
+          </a>
         </div>
-        <div class="flex gap-2 items-center text-gray-400">
-          <div class="text-xl text-gray-500 hover:text-white size-10 border border-white/25 bg-radial-gradient2 rounded-full flex items-center justify-center transition-all duration-300 ease-in-out cursor-pointer" x-ref="blogSwiperNext">
-            <i class="fal fa-arrow-right"></i>
-          </div>
-          <div class="text-xl text-gray-500 hover:text-white size-10 border border-white/25 bg-radial-gradient2 rounded-full flex items-center justify-center transition-all duration-300 ease-in-out cursor-pointer" x-ref="blogSwiperPrev">
-            <i class="fal fa-arrow-left"></i>
+      </div>
+    </section>
+
+
+    <!-- CONSULTING SECTION -->
+    <section class="relative z-[0] overflow-hidden bg-gradient-to-t from-secondary-900 to-background flex justify-center items-center h-screen">
+      <div class="bg-gradient-to-b from-secondary-800 absolute bottom-0 left-0 right-0"></div>
+      <div class="absolute bottom-0 left-0 right-0 -z-[1]">
+      </div>
+      <div class="container-standard">
+        <div class="flex justify-center">
+          <div class="w-full lg:w-2/3 flex flex-col items-center gap-10">
+            <h2 class="text-secondary-50 font-bold text-2xl lg:text-3xl">
+              مشاوره تخصصی رایگان
+            </h2>
+            <p class="text-gray-100 font-light text-base lg:text-lg text-center">
+              برای دریافت مشاوره رایگان و تخصصی در رابطه با پروژه‌های خود، کافیست فرم زیر را پر کنید. کارشناسان متخصص ما آماده‌اند تا بهترین راهکار را متناسب با نیاز شما ارائه دهند.
+            </p>
+            <form class="w-full flex flex-col items-center gap-10">
+              <div class="w-full flex items-center justify-center gap-5 lg:gap-20">
+                <input type="text" placeholder="نام و نام خانوادگی" class="w-40 md:w-64 lg:w-1/2 bg-background-800 border-background-700/50 text-center text-primary-50 focus:border-primary-800 focus:ring-0 placeholder-gray-900/80">
+                <input type="tel" placeholder="شماره تماس" class="w-40 md:w-64 lg:w-1/2 bg-background-800 border-background-700/50 text-center text-primary-50 focus:border-primary-800 focus:ring-0 placeholder-gray-900/80">
+              </div>
+              <button type="button" class="flex flex-col gap-1 items-end">
+                <div class="button5">
+                  <span class="z-[2]">
+                    ثبت درخواست
+                  </span>
+                  <i class="fal fa-arrow-left z-[2]"></i>
+                </div>
+                <div class="h-[1px] w-2/3 lg:w-1/3 bg-primary"></div>
+              </button>
+            </form>
           </div>
         </div>
       </div>
     </section>
+
+
   </main>
+
   <footer>
-    <div class="bg-footer-color">
+    <div class="bg-gradient-to-t from-background via-background/85 to-background/0 min-h-screen py-10 flex justify-center items-center">
       <div class="container-standard">
-        <div class="flex flex-col gap-8 lg:gap-24 lg:flex-row py-10 text-gray-50 pr-5 lg:pr-0">
-          <div class="w-full lg:w-5/6 grid grid-cols-1 lg:grid-cols-5 gap-y-8 gap-x-10">
-            <div class="col-span-1 lg:col-span-2 flex flex-col gap-5">
-              <div class="flex gap-3 items-center">
-                <img src="images/logo.svg" alt="">
-                <h4 class="text-base font-semibold">
-                  گروه معماری آرمان
+        <div class="flex flex-col items-center gap-24">
+          <div class="w-full grid grid-cols-1 lg:grid-cols-7 items-center gap-20 lg:gap-10">
+            <div class="lg:col-span-2 flex justify-center items-center gap-14">
+              <div class="flex flex-col items-center lg:items-start gap-5">
+                <h4 class="font-semibold text-primary-100">
+                  دسترسی سریع
                 </h4>
+                <ul class="flex flex-col gap-5 items-center lg:items-start text-gray-200">
+                  <li>
+                    <a href="#">
+                      تماس با ما
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      درباره ما
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      نمایندگی‌ها
+                    </a>
+                  </li>
+                </ul>
               </div>
-              <p class="text-sm font-light">
-                شرکت معماری و طراحی دکوراسیون داخلی آرمان بابیش از ۲۰ سال تجربه در زمینه معماری وطراحی داخلی ساختمان آماده خدمت رسانی به شما عزیزان است 
+              <div class="flex flex-col items-center lg:items-start gap-5">
+                <h4 class="text-base font-semibold text-primary-100">
+                  لینک‌‌های مهم
+                </h4>
+                <ul class="flex flex-col items-center lg:items-start gap-5 text-gray-200">
+                  <li>
+                    <a href="#">
+                      آشپزخانه‌‌ها
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      اخبار و ویدئو
+                    </a>
+                  <li>
+                    <a href="#">
+                      طراحی سه‌بعدی 
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="lg:col-span-3 flex flex-col items-center justify-center gap-14 order-first lg:order-none">
+              <img src="images/logo.svg" alt="" class="w-36 lg:w-44">
+              <p class="lg:text-lg font-light text-gray-100 text-center">
+                بیش از یک دهه تجربه در طراحی و اجرای کابینت‌های مدرن و لوکس؛ درباره ما بیشتر بدانید.
               </p>
-              <a href="#" class="flex items-center gap-2 text-secondary-500">
-                درباره ما
-                <i class="fal fa-arrow-left"></i>
+              <a href="#" class="flex flex-col gap-1 items-end">
+                <div class="flex gap-2 items-center justify-center border border-primary-50 text-primary-50 py-2 px-5">
+                  <span class="z-[2]">
+                    درباره ما
+                  </span>
+                  <i class="fal fa-arrow-left z-[2]"></i>
+                </div>
+                <div class="h-[1px] w-2/3 lg:w-1/3 bg-primary-50"></div>
               </a>
             </div>
-            <div class="col-span-1 lg:col-span-1 flex flex-col gap-5">
-              <h4 class="text-base font-semibold">
-                دسترسی سریع
-              </h4>
-              <ul class="flex flex-col gap-5 text-sm font-light">
-                <li>
-                  <a href="#">
-                    خدمات
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    پروژه‌ها
-                  </a>
-                <li>
-                  <a href="#">
-                    مقالات 
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    تماس با ما
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div class="col-span-1 lg:col-span-2 flex flex-col gap-5 text-sm">
-              <h4 class="text-base font-semibold">
+            <div class="lg:col-span-2 flex flex-col items-center lg:items-start gap-10 lg:gap-5">
+              <h4 class="text-base font-semibold text-primary-100">
                 راه‌های ارتباطی
               </h4>
-              <a href="#">
-                <address href="#" class="not-italic flex items-center gap-2 font-light">
-                  <i class="fal fa-map-marker-alt text-lg"></i>
+             <div class="flex flex-col items-center lg:items-start gap-5">
+              <a href="#" class="flex flex-col lg:flex-row items-center lg:items-start gap-5">
+                <div class="flex gap-2 text-gray-200">
+                  <i class="fal fa-map-marker-alt text-lg text-primary-700"></i>
+                  آدرس:
+                </div>
+                <address href="#" class="not-italic font-light text-gray-200">
                   کاشان، خیابان امیرکبیر، چهارراه سلمان
                 </address>
               </a>
-              <a href="tel:021-75482000" class="flex items-center gap-2 font-light">
-                <i class="fal fa-headphones-alt text-lg"></i>
-                ۰۲۱-۷۵۴۸۲۰۰۰
+              <a href="#" class="flex flex-col lg:flex-row items-center lg:items-start gap-5">
+                <div class="flex gap-2 text-gray-200">
+                  <i class="fal fa-headphones-alt text-lg text-primary-700"></i>
+                  تلفن:
+                </div>
+                <span class="text-gray-200 font-light">
+                  ۰۲۱-۷۵۴۸۲۰۰۰
+                </span>
               </a>
-              <a href="tel:021-75482000" class="flex items-center gap-2 font-light">
-                <i class="fal fa-phone rotate-90 text-lg"></i>
-                ۰۲۱-۷۵۴۸۲۰۰۰
+              <a href="#" class="flex flex-col lg:flex-row items-center lg:items-start gap-5">
+                <div class="flex gap-2 text-gray-200">
+                  <i class="fal fa-envelope text-lg text-primary-700"></i>
+                  ایمیل:
+                </div>
+                <span class="text-gray-200 font-light">
+                  contact@paraxwood.com
+                </span>
               </a>
-              <a href="#" class="flex items-center gap-2 font-light">
-                <i class="fal fa-envelope text-lg"></i>
-                contact@teamarman.com
-              </a>
+             </div>
             </div>
           </div>
-          <div class="w-full lg:w-1/6 flex flex-col gap-8">
-            <h4 class="text-base font-semibold">
-              مجوز‌‌ها
-            </h4>
-            <div class="flex items-center gap-1">
-              <div class="flex items-center justify-center size-24  bg-gradient-to-l from-black/40 to-gradient-color/20 border border-border-color rounded">
-                <img src="images/enemad.png" alt="">
-              </div>
-              <div class="flex items-center justify-center size-24  bg-gradient-to-l from-black/40 to-gradient-color/20 border border-border-color rounded">
-                <img src="images/samandehi.png" alt="">
-              </div>
-            </div>
+          <div class="flex items-center gap-5">
+            <a href="#" class="size-8 flex items-center justify-center text-primary-700/50 border border-primary-700/50">
+              <i class="fab fa-instagram text-xl"></i>
+            </a>
+            <a href="#" class="size-8 flex items-center justify-center text-primary-700/50 border border-primary-700/50">
+              <i class="fab fa-telegram-plane text-xl"></i>
+            </a>
+            <a href="#" class="size-8 flex items-center justify-center text-primary-700/50 border border-primary-700/50">
+              <i class="fab fa-twitter text-xl"></i>
+            </a>
+            <a href="#" class="size-8 flex items-center justify-center text-primary-700/50 border border-primary-700/50">
+              <i class="fab fa-whatsapp text-xl"></i>
+            </a>
           </div>
         </div>
       </div>
     </div>
     <div class="container-standard">
-      <div class="flex md:flex-row flex-col justify-between items-center gap-3 py-2 text-xs text-white font-light">
+      <div class="flex md:flex-row flex-col justify-between items-center gap-3 py-2 text-xs text-gray-200 font-light">
         <div class=" flex items-center gap-1">
           <i class="fal fa-copyright"></i>
           <span>
-            ۱۴۰۳ | گروه معماری آرمان
+            ۱۴۰۴   |  نوین چوب
           </span>
         </div>
         <div class="flex items-center gap-1">
           <i class="fal fa-heart"></i>
+          ارائه‌ای دیگر با افتخار  
           <a href="#">
-            طراحی وب‌سایت توسط پلتفرم غرفه‌چی
+              توسط  غرفه‌چی
           </a>
         </div>
       </div>
