@@ -24,4 +24,15 @@ Alpine.start();
   
  
   
+// NABAR BEFOR AND AFTER SCROLL  
+  
+// const navBar = document.querySelector('.navBar');
+
+// window.addEventListener('scroll', () => {
+//   if (window.scrollY > 0) { 
+//     navBar.classList.replace('beforScroll', 'afterScroll');
+//   } else {
+//     navBar.classList.replace('afterScroll', 'beforScroll');
+//   }
+// });
 
