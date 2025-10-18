@@ -3,8 +3,11 @@ module.exports = {
   content: ["./*.{html,js}"],
   theme: {
     extend: {
+      backgroundImage: {
+        'footer-bg': "url('/images/consulting-patern.webp')",
+      },
       fontFamily: {
-        'persian': ['IranYekanWeb', 'tahoma']
+        'persian': ['Lahzeh', 'tahoma']
       },
       colors: {
         transparent: 'transparent',

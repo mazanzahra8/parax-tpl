@@ -19,7 +19,7 @@
   ">
     <nav class="z-[50] fixed top-0 left-0 right-0 transition-all duration-400 ease-in-out" :class="topbarHidden ? '-translate-y-[70px] opacity-100' : '-translate-y-0'">
       <div :class="[
-      scrolled ? 'bg-background/60 backdrop-blur-lg' : '',
+      scrolled ? 'bg-background/60 backdrop-blur-2xl' : '',
       topbarHidden ? 'opacity-0' : '']"  class="transition-all duration-400 ease-in-out py-3 border-b  border-primary-100/20">
         <div class="container-standard">
           <div class="flex items-center justify-between">
@@ -47,34 +47,35 @@
             </div>
             <div class="w-1/3 flex justify-end items-center gap-4">
               <i class="fal fa-search text-primary-50 text-xl lg:!hidden"></i>
-              <a href="#" class="flex flex-col gap-1 items-end">
-                <div class="button5 !p-3 lg:!py-2 lg:!px-5">
+              <a href="#" class="flex group flex-col gap-1 items-end">
+                <div class="paraxButton1 !p-3 lg:!py-2 lg:!px-5">
                   <i class="fal fa-user z-[2]"></i>
                   <span class="hidden lg:block z-[2]">
                     ورود | ثبت‌نام
                   </span>
                 </div>
-                <div class="h-[1px] w-2/3 lg:w-1/3 bg-primary"></div>
+                <div class="h-[1px] w-2/3 lg:w-1/3 group-hover:w-full transition-all duration-500 ease-in-out bg-primary"></div>
               </a>
             </div>
           </div>
         </div>
       </div>
-      <div :class="scrolled ? 'bg-background/60 backdrop-blur-lg ' : ''" :class="topbarHidden  ? '' : ''" class=" py-3 hidden lg:block">
+      <div :class="scrolled ? 'bg-background/60 backdrop-blur-2xl ' : ''" :class="topbarHidden  ? '' : ''" class=" py-3 hidden lg:block">
         <div class="container-standard">
           <div class="flex items-center justify-between">
             <ul class="flex items-center justify-center gap-5 font-medium text-gray-50">
-                <li class="hover:text-secondary-500 transition-all duration-300 ease-in-out">
+                <li class="relative pb-1 after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[1px] after:bg-primary-50 after:transition-all after:duration-300 hover:after:w-full">
                   <a href="#">
                     کالکشن‌ها
                   </a>
                 </li>
-                <li class="hover:text-secondary-500 transition-all duration-300 ease-in-out">
+                <li class="relative pb-1 text-gray-50 transition-colors duration-300 hover:text-primary-500
+                after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-primary after:transition-all after:duration-300 hover:after:w-full">
                   <a href="#">
                     پروژه‌‌ها
                   </a>
                 </li>
-                <li class="hover:text-secondary-500 transition-all duration-300 ease-in-out">
+                <li>
                   <a href="#">
                     نمایندگان
                   </a>
@@ -125,38 +126,38 @@
         });
     }
 }">
-    <div class="relative">
-      <div class="absolute bottom-7 lg:top-1/2 right-20 lg:right-auto lg:left-5 z-[2] size-12 flex items-center justify-center bg-background hover:bg-primary text-gray-50 cursor-pointer backdrop-blur-sm" x-ref="heroSwiperNext">
+    <div class="relative h-screen">
+      <div class="absolute bottom-7 lg:top-1/2 right-20 lg:right-auto lg:left-5 z-[2] size-12 flex items-center justify-center bg-background hover:bg-primary text-gray-50 cursor-pointer backdrop-blur-sm transition-all duration-300 ease-in-out" x-ref="heroSwiperNext">
         <i class="fal fa-arrow-left text-xl"></i>
       </div>
-      <div class="absolute bottom-7 lg:top-1/2 right-5 z-[2] size-12 flex items-center justify-center bg-background hover:bg-primary text-gray-50 cursor-pointer backdrop-blur-sm" x-ref="heroSwiperPrev">
+      <div class="absolute bottom-7 lg:top-1/2 right-5 z-[2] size-12 flex items-center justify-center bg-background hover:bg-primary text-gray-50 cursor-pointer backdrop-blur-sm transition-all duration-300 ease-in-out" x-ref="heroSwiperPrev">
         <i class="fal fa-arrow-right text-xl"></i>
       </div>
-      <div class="absolute bottom-7 left-5 lg:left-16 z-[2]">
+      <div class="absolute bottom-7 left-5 lg:left-16 z-[2] transition-all duration-300 ease-in-out">
         <div class="!w-auto  z-[2]" id="heroSwiperPagination" x-ref="heroSwiperPagination"></div>
       </div>
-      <div class="swiper" x-ref="heroSwiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <div class="relative">
+      <div class="swiper !flex !h-screen" x-ref="heroSwiper">
+        <div class="swiper-wrapper !h-auto">
+          <div class="swiper-slide !h-full">
+            <div class="relative !h-full">
               <div class="absolute h-3/5 left-0 right-0 top-0 bg-gradient-to-b from-black/80"></div>
-              <div class="aspect-[393/812] lg:aspect-[1440/670] overflow-hidden">
+              <div class="w-full h-full overflow-hidden">
                 <img src="images/hero-img.webp" alt="" class="w-full h-full object-cover">
               </div>
             </div>
           </div>
-          <div class="swiper-slide">
-            <div class="relative">
+          <div class="swiper-slide !h-full">
+            <div class="relative !h-full">
               <div class="absolute h-3/5 left-0 right-0 top-0 bg-gradient-to-b from-black/80"></div>
-              <div class="aspect-[393/812] lg:aspect-[1440/670] overflow-hidden">
+              <div class="w-full h-full overflow-hidden">
                 <img src="images/hero-img.webp" alt="" class="w-full h-full object-cover">
               </div>
             </div>
           </div>
-          <div class="swiper-slide">
-            <div class="relative">
+          <div class="swiper-slide !h-full">
+            <div class="relative !h-full">
               <div class="absolute h-3/5 left-0 right-0 top-0 bg-gradient-to-b from-black/80"></div>
-              <div class="aspect-[393/812] lg:aspect-[1440/670] overflow-hidden">
+              <div class="w-full h-full overflow-hidden">
                 <img src="images/hero-img.webp" alt="" class="w-full h-full object-cover">
               </div>
             </div>
@@ -180,6 +181,7 @@
             </p>
           </div>
          <div class="relative aspect-[360/260] lg:aspect-[1094/640] overflow-hidden">
+          <a href="#" class="absolute inset-0 z-[1]"></a>
           <div class="absolute w-full bottom-0 h-3/4 lg:h-2/3 bg-gradient-to-t from-black/80 flex flex-col justify-end gap-2 lg:gap-5 px-3 lg:px-10 pb-3 lg:pb-8">
             <h3 class="relative text-gray-50 text-base lg:text-2xl font-medium
             before:w-4 before:h-1 before:absolute before:-right-5 before:bg-primary before:top-1/2 before:-translate-y-1/2">
@@ -196,6 +198,7 @@
           <img src="images/collections-img1.webp" alt="" class="w-full h-full object-cover">
          </div>
          <div class="relative aspect-[360/260] lg:aspect-[1094/640] overflow-hidden">
+          <a href="#" class="absolute inset-0 z-[1]"></a>
           <div class="absolute w-full bottom-0 h-3/4 lg:h-2/3 bg-gradient-to-t from-black/80 flex flex-col justify-end gap-2 lg:gap-5 px-3 lg:px-10 pb-3 lg:pb-8">
             <h3 class="relative text-gray-50 text-base lg:text-2xl font-medium
             before:w-4 before:h-1 before:absolute before:-right-5 before:bg-primary before:top-1/2 before:-translate-y-1/2">
@@ -212,6 +215,7 @@
           <img src="images/collections-img2.webp" alt="" class="w-full h-full object-cover">
          </div>
          <div class="relative aspect-[360/260] lg:aspect-[1094/640] overflow-hidden">
+          <a href="#" class="absolute inset-0 z-[1]"></a>
           <div class="absolute w-full bottom-0 h-3/4 lg:h-2/3 bg-gradient-to-t from-black/80 flex flex-col justify-end gap-2 lg:gap-5 px-3 lg:px-10 pb-3 lg:pb-8">
             <h3 class="relative text-gray-50 text-base lg:text-2xl font-medium
             before:w-4 before:h-1 before:absolute before:-right-5 before:bg-primary before:top-1/2 before:-translate-y-1/2">
@@ -232,9 +236,9 @@
     </section>
 
     <!-- 3D DESIGN SECTION -->
-     <section class="bg-secondary-900/20 overflow-hidden min-h-screen flex items-center justify-center">
-       <div class="relative container-standard">
-        <img src="images/3d-design-patern.webp" alt="" class="absolute -top-0 left-5 lg:left-0 xl:-left-20 w-28 lg:w-36">
+     <section class="relative bg-secondary-900/20 overflow-hidden min-h-screen flex items-center justify-center">
+      <img src="images/3d-design-patern.webp" alt="" class="absolute top-0 left-5 lg:left-28 2xl:left-1/4 2xl:-translate-x-1/4 w-28 lg:w-36">
+       <div class="container-standard">
         <div class="flex flex-col lg:flex-row items-center gap-10 py-16 lg:py-32">
           <div class="flex flex-col gap-10 items-start">
             <div class="flex flex-col gap-4">
@@ -245,17 +249,17 @@
                 تصمیم‌گیری هوشمندانه با تصویرسازی واقعی
               </p>
             </div>
-            <p class="text-lg font-extralight text-gray-200">
+            <p class="text-lg leading-8 font-extralight text-gray-200">
               لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است،
             </p>
-            <a href="#" class="flex flex-col gap-1 items-end">
-              <div class="button5">
+            <a href="#" class="group flex flex-col gap-1 items-end">
+              <div class="paraxButton1">
                 <span class="z-[2]">
                   سفارش آنلاین
                 </span>
                 <i class="fal fa-arrow-left z-[2]"></i>
               </div>
-              <div class="h-[1px] w-2/3 lg:w-1/3 bg-primary"></div>
+              <div class="h-[1px] w-2/3 lg:w-1/3 group-hover:w-full transition-all duration-500 ease-in-out bg-primary"></div>
             </a>
           </div>
           <div class="lg:w-1/2 shrink-0">  
@@ -279,17 +283,17 @@
                 جزئیاتی از طراحی‌هایی که تفاوت را رقم زدند
               </p>
             </div>
-            <p class="text-base lg:text-lg font-extralight text-gray-100">
+            <p class="text-base lg:text-lg leading-8 font-extralight text-gray-100">
               لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است
             </p>
-            <a href="#" class="flex flex-col gap-1 items-end">
-              <div class="button5">
+            <a href="#" class="group flex flex-col gap-1 items-end">
+              <div class="paraxButton1">
                 <span class="z-[2]">
                   مشاهده همه
                 </span>
                 <i class="fal fa-arrow-left z-[2]"></i>
               </div>
-              <div class="h-[1px] w-2/3 lg:w-1/3 bg-primary"></div>
+              <div class="h-[1px] w-2/3 lg:w-1/3 group-hover:w-full transition-all duration-500 ease-in-out bg-primary"></div>
             </a>
           </div>
           <div x-data="{
@@ -326,76 +330,106 @@
             <div class="swiper" x-ref="featuresSwiper">
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                  <div class="relative w-full h-full">
-                    <a href="#" class="absolute inset-0 z-[1]"></a>
-                    <div class="bg-primary text-white px-4 py-1 absolute top-2 left-2 text-sm">
+                  <div class="relative w-full h-full group overflow-hidden cursor-pointer">
+                    <a href="#" class="absolute inset-0 z-[2]"></a>
+                    <img src="images/projects-img1.webp" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700
+                      bg-gradient-to-t from-[#fff8e014]/50 via-transparent to-transparent mix-blend-screen">
+                    </div>
+                    <div class="bg-primary text-white px-4 py-1 absolute top-2 left-2 text-sm z-[3]">
                       زعفرانیه
                     </div>
-                    <div class="bg-gradient-to-t from-black h-2/3 flex items-end pb-3 pr-4 font-medium text-gray-100 absolute left-0 right-0 bottom-0">
+                    <div class="bg-gradient-to-t from-black/80 h-2/3 flex items-end pb-3 pr-4 font-medium text-gray-100 absolute left-0 right-0 bottom-0 
+                      transition-all duration-500 group-hover:pb-6 group-hover:from-black/60">
                       آشپزخانه مدرن
                     </div>
-                   <img src="images/projects-img1.webp" alt="" class="w-full h-full object-cover">
                   </div>
+                  
                 </div>
                 <div class="swiper-slide">
-                  <div class="relative w-full h-full">
-                    <a href="#" class="absolute inset-0 z-[1]"></a>
-                    <div class="bg-primary text-white px-4 py-1 absolute top-2 left-2 text-sm">
+                  <div class="relative w-full h-full group overflow-hidden cursor-pointer">
+                    <a href="#" class="absolute inset-0 z-[2]"></a>
+                    <img src="images/projects-img2.webp" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700
+                      bg-gradient-to-t from-[#fff8e014]/50 via-transparent to-transparent mix-blend-screen">
+                    </div>
+                    <div class="bg-primary text-white px-4 py-1 absolute top-2 left-2 text-sm z-[3]">
                       زعفرانیه
                     </div>
-                    <div class="bg-gradient-to-t from-black h-2/3 flex items-end pb-3 pr-4 font-medium text-gray-100 absolute left-0 right-0 bottom-0">
+                    <div class="bg-gradient-to-t from-black/80 h-2/3 flex items-end pb-3 pr-4 font-medium text-gray-100 absolute left-0 right-0 bottom-0 
+                      transition-all duration-500 group-hover:pb-6 group-hover:from-black/60">
                       آشپزخانه مدرن
                     </div>
-                   <img src="images/projects-img2.webp" alt="" class="w-full h-full object-cover">
                   </div>
+                  
                 </div>
                 <div class="swiper-slide">
-                  <div class="relative w-full h-full">
-                    <a href="#" class="absolute inset-0 z-[1]"></a>
-                    <div class="bg-primary text-white px-4 py-1 absolute top-2 left-2 text-sm">
+                  <div class="relative w-full h-full group overflow-hidden cursor-pointer">
+                    <a href="#" class="absolute inset-0 z-[2]"></a>
+                    <img src="images/projects-img3.webp" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700
+                      bg-gradient-to-t from-[#fff8e014]/50 via-transparent to-transparent mix-blend-screen">
+                    </div>
+                    <div class="bg-primary text-white px-4 py-1 absolute top-2 left-2 text-sm z-[3]">
                       زعفرانیه
                     </div>
-                    <div class="bg-gradient-to-t from-black h-2/3 flex items-end pb-3 pr-4 font-medium text-gray-100 absolute left-0 right-0 bottom-0">
+                    <div class="bg-gradient-to-t from-black/80 h-2/3 flex items-end pb-3 pr-4 font-medium text-gray-100 absolute left-0 right-0 bottom-0 
+                      transition-all duration-500 group-hover:pb-6 group-hover:from-black/60">
                       آشپزخانه مدرن
                     </div>
-                   <img src="images/projects-img3.webp" alt="" class="w-full h-full object-cover">
                   </div>
+                  
                 </div>
                 <div class="swiper-slide">
-                  <div class="relative w-full h-full">
-                    <a href="#" class="absolute inset-0 z-[1]"></a>
-                    <div class="bg-primary text-white px-4 py-1 absolute top-2 left-2 text-sm">
+                  <div class="relative w-full h-full group overflow-hidden cursor-pointer">
+                    <a href="#" class="absolute inset-0 z-[2]"></a>
+                    <img src="images/projects-img4.webp" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700
+                      bg-gradient-to-t from-[#fff8e014]/50 via-transparent to-transparent mix-blend-screen">
+                    </div>
+                    <div class="bg-primary text-white px-4 py-1 absolute top-2 left-2 text-sm z-[3]">
                       زعفرانیه
                     </div>
-                    <div class="bg-gradient-to-t from-black h-2/3 flex items-end pb-3 pr-4 font-medium text-gray-100 absolute left-0 right-0 bottom-0">
+                    <div class="bg-gradient-to-t from-black/80 h-2/3 flex items-end pb-3 pr-4 font-medium text-gray-100 absolute left-0 right-0 bottom-0 
+                      transition-all duration-500 group-hover:pb-6 group-hover:from-black/60">
                       آشپزخانه مدرن
                     </div>
-                   <img src="images/projects-img4.webp" alt="" class="w-full h-full object-cover">
                   </div>
+                  
                 </div>
                 <div class="swiper-slide">
-                  <div class="relative w-full h-full">
-                    <a href="#" class="absolute inset-0 z-[1]"></a>
-                    <div class="bg-primary text-white px-4 py-1 absolute top-2 left-2 text-sm">
+                  <div class="relative w-full h-full group overflow-hidden cursor-pointer">
+                    <a href="#" class="absolute inset-0 z-[2]"></a>
+                    <img src="images/projects-img2.webp" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700
+                      bg-gradient-to-t from-[#fff8e014]/50 via-transparent to-transparent mix-blend-screen">
+                    </div>
+                    <div class="bg-primary text-white px-4 py-1 absolute top-2 left-2 text-sm z-[3]">
                       زعفرانیه
                     </div>
-                    <div class="bg-gradient-to-t from-black h-2/3 flex items-end pb-3 pr-4 font-medium text-gray-100 absolute left-0 right-0 bottom-0">
+                    <div class="bg-gradient-to-t from-black/80 h-2/3 flex items-end pb-3 pr-4 font-medium text-gray-100 absolute left-0 right-0 bottom-0 
+                      transition-all duration-500 group-hover:pb-6 group-hover:from-black/60">
                       آشپزخانه مدرن
                     </div>
-                   <img src="images/projects-img1.webp" alt="" class="w-full h-full object-cover">
                   </div>
+                  
                 </div>
                 <div class="swiper-slide">
-                  <div class="relative w-full h-full">
-                    <a href="#" class="absolute inset-0 z-[1]"></a>
-                    <div class="bg-primary text-white px-4 py-1 absolute top-2 left-2 text-sm">
+                  <div class="relative w-full h-full group overflow-hidden cursor-pointer">
+                    <a href="#" class="absolute inset-0 z-[2]"></a>
+                    <img src="images/projects-img3.webp" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700
+                      bg-gradient-to-t from-[#fff8e014]/50 via-transparent to-transparent mix-blend-screen">
+                    </div>
+                    <div class="bg-primary text-white px-4 py-1 absolute top-2 left-2 text-sm z-[3]">
                       زعفرانیه
                     </div>
-                    <div class="bg-gradient-to-t from-black h-2/3 flex items-end pb-3 pr-4 font-medium text-gray-100 absolute left-0 right-0 bottom-0">
+                    <div class="bg-gradient-to-t from-black/80 h-2/3 flex items-end pb-3 pr-4 font-medium text-gray-100 absolute left-0 right-0 bottom-0 
+                      transition-all duration-500 group-hover:pb-6 group-hover:from-black/60">
                       آشپزخانه مدرن
                     </div>
-                   <img src="images/projects-img2.webp" alt="" class="w-full h-full object-cover">
                   </div>
+                  
                 </div>
               </div>
             </div>
@@ -447,13 +481,14 @@
             <div class="swiper" x-ref="representationSwiper">
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                  <div class="relative pt-16">
-                   <div class="absolute left-1/2 -translate-x-1/2 top-0">
+                  <div class="group relative pt-16">
+                   <div class="absolute left-1/2 -translate-x-1/2 top-0 z-[1]">
                     <a href="#" class="glassBox">
                       <img src="images/representation-icon1.webp" alt="" class="w-28 lg:w-36">
                     </a>
                    </div>
-                    <div class="flex flex-col gap-5 pb-5 pt-14 lg:pt-16 px-4 items-start w-full h-full bg-secondary/20 border border-secondary-300/10">
+                    <div class="relative overflow-hidden flex flex-col gap-5 pb-5 pt-14 lg:pt-16 px-4 items-start w-full h-full bg-secondary/20 border border-secondary-300/10">
+                      <a href="#" class="absolute inset-0"></a>
                       <h3 class="lg:text-lg font-medium text-primary-300 self-center">
                         نمایندگی تهران
                       </h3>
@@ -471,13 +506,14 @@
                   </div>
                 </div>
                 <div class="swiper-slide">
-                  <div class="relative pt-16">
-                   <div class="absolute left-1/2 -translate-x-1/2 top-0">
-                    <div class="glassBox">
+                  <div class="group relative pt-16">
+                   <div class="absolute left-1/2 -translate-x-1/2 top-0 z-[1]">
+                    <a href="#" class="glassBox">
                       <img src="images/representation-icon2.webp" alt="" class="w-28 lg:w-36">
-                    </div>
+                    </a>
                    </div>
-                    <div class="flex flex-col gap-5 pb-5 pt-14 lg:pt-16 px-4 items-start w-full h-full bg-secondary/20 border border-secondary-300/10">
+                    <div class="relative overflow-hidden flex flex-col gap-5 pb-5 pt-14 lg:pt-16 px-4 items-start w-full h-full bg-secondary/20 border border-secondary-300/10">
+                      <a href="#" class="absolute inset-0"></a>
                       <h3 class="lg:text-lg font-medium text-primary-300 self-center">
                         نمایندگی اصفهان
                       </h3>
@@ -495,13 +531,14 @@
                   </div>
                 </div>
                 <div class="swiper-slide">
-                  <div class="relative pt-16">
-                   <div class="absolute left-1/2 -translate-x-1/2 top-0">
-                    <div class="glassBox">
+                  <div class="group relative pt-16">
+                   <div class="absolute left-1/2 -translate-x-1/2 top-0 z-[1]">
+                    <a href="#" class="glassBox">
                       <img src="images/representation-icon3.webp" alt="" class="w-28 lg:w-36">
-                    </div>
+                    </a>
                    </div>
-                    <div class="flex flex-col gap-5 pb-5 pt-14 lg:pt-16 px-4 items-start w-full h-full bg-secondary/20 border border-secondary-300/10">
+                    <div class="relative overflow-hidden flex flex-col gap-5 pb-5 pt-14 lg:pt-16 px-4 items-start w-full h-full bg-secondary/20 border border-secondary-300/10">
+                      <a href="#" class="absolute inset-0"></a>
                       <h3 class="lg:text-lg font-medium text-primary-300 self-center">
                         نمایندگی زنجان
                       </h3>
@@ -519,13 +556,14 @@
                   </div>
                 </div>
                 <div class="swiper-slide">
-                  <div class="relative pt-16">
-                   <div class="absolute left-1/2 -translate-x-1/2 top-0">
-                    <div class="glassBox">
+                  <div class="group relative pt-16">
+                   <div class="absolute left-1/2 -translate-x-1/2 top-0 z-[1]">
+                    <a href="#" class="glassBox">
                       <img src="images/representation-icon1.webp" alt="" class="w-28 lg:w-36">
-                    </div>
+                    </a>
                    </div>
-                    <div class="flex flex-col gap-5 pb-5 pt-14 lg:pt-16 px-4 items-start w-full h-full bg-secondary/20 border border-secondary-300/10">
+                    <div class="relative overflow-hidden flex flex-col gap-5 pb-5 pt-14 lg:pt-16 px-4 items-start w-full h-full bg-secondary/20 border border-secondary-300/10">
+                      <a href="#" class="absolute inset-0"></a>
                       <h3 class="lg:text-lg font-medium text-primary-300 self-center">
                         نمایندگی تهران
                       </h3>
@@ -767,14 +805,14 @@
               </div>
             </div>
           </div>
-          <a href="#" class="flex flex-col gap-1 items-end">
-            <div class="flex gap-2 items-center justify-center border border-primary-50 text-primary-50 py-2 px-5">
+          <a href="#" class="group flex flex-col gap-1 items-end">
+            <div class="paraxButton2">
               <span class="z-[2]">
                 مشاهده همه
               </span>
               <i class="fal fa-arrow-left z-[2]"></i>
             </div>
-            <div class="h-[1px] w-2/3 lg:w-1/3 bg-primary-50"></div>
+            <div class="h-[1px] w-2/3 lg:w-1/3 group-hover:w-full transition-all duration-500 ease-in-out bg-primary-50"></div>
           </a>
         </div>
       </div>
@@ -783,7 +821,7 @@
 
     <!-- CONSULTING SECTION -->
     <section class="relative z-[0] overflow-hidden bg-gradient-to-t from-secondary-900 to-background flex justify-center items-center h-screen">
-     <img src="images/consulting-patern.webp" alt="" draggable="false" class="absolute bottom-0 left-0 h-1/2 object-cover right-0 -z-[1]">
+      <div class="absolute bottom-0 left-0 h-1/2 object-cover right-0 bg-repeat	-z-[1] bg-[url('/images/consulting-patern.webp')]"></div>
       <div class="container-standard">
         <div class="flex justify-center">
           <div class="w-full lg:w-2/3 flex flex-col items-center gap-10">
@@ -798,14 +836,14 @@
                 <input type="text" placeholder="نام و نام خانوادگی" class="w-40 md:w-64 lg:w-1/2 bg-background-800 border-background-700/50 text-center text-primary-50 focus:border-primary-800 focus:ring-0 placeholder-gray-900/80">
                 <input type="tel" placeholder="شماره تماس" class="w-40 md:w-64 lg:w-1/2 bg-background-800 border-background-700/50 text-center text-primary-50 focus:border-primary-800 focus:ring-0 placeholder-gray-900/80">
               </div>
-              <button type="button" class="flex flex-col gap-1 items-end">
-                <div class="button5">
+              <button type="button" class="group flex flex-col gap-1 items-end">
+                <div class="paraxButton1">
                   <span class="z-[2]">
                     ثبت درخواست
                   </span>
                   <i class="fal fa-arrow-left z-[2]"></i>
                 </div>
-                <div class="h-[1px] w-2/3 lg:w-1/3 bg-primary"></div>
+                <div class="h-[1px] w-2/3 lg:w-1/3 group-hover:w-full transition-all duration-500 ease-in-out bg-primary"></div>
               </button>
             </form>
           </div>
@@ -872,14 +910,14 @@
               <p class="lg:text-lg font-light text-gray-100 text-center">
                 بیش از یک دهه تجربه در طراحی و اجرای کابینت‌های مدرن و لوکس؛ درباره ما بیشتر بدانید.
               </p>
-              <a href="#" class="flex flex-col gap-1 items-end">
-                <div class="flex gap-2 items-center justify-center border border-primary-50 text-primary-50 py-2 px-5">
+              <a href="#" class="group flex flex-col gap-1 items-end">
+                <div class="paraxButton2">
                   <span class="z-[2]">
                     درباره ما
                   </span>
                   <i class="fal fa-arrow-left z-[2]"></i>
                 </div>
-                <div class="h-[1px] w-2/3 lg:w-1/3 bg-primary-50"></div>
+                <div class="h-[1px] w-2/3 lg:w-1/3 group-hover:w-full transition-all duration-500 ease-in-out bg-primary-50"></div>
               </a>
             </div>
             <div class="lg:col-span-2 flex flex-col items-center lg:items-start gap-10 lg:gap-5">
@@ -918,16 +956,16 @@
             </div>
           </div>
           <div class="flex items-center gap-5">
-            <a href="#" class="size-8 flex items-center justify-center text-primary-700/50 border border-primary-700/50">
+            <a href="#" class="size-8 flex items-center justify-center text-primary-700/50 hover:text-primary-700 border border-primary-700/50 hover:border-primary-700 transition-all duration-500 ease-in-out">
               <i class="fab fa-instagram text-xl"></i>
             </a>
-            <a href="#" class="size-8 flex items-center justify-center text-primary-700/50 border border-primary-700/50">
+            <a href="#" class="size-8 flex items-center justify-center text-primary-700/50 hover:text-primary-700 border border-primary-700/50 hover:border-primary-700 transition-all duration-500 ease-in-out">
               <i class="fab fa-telegram-plane text-xl"></i>
             </a>
-            <a href="#" class="size-8 flex items-center justify-center text-primary-700/50 border border-primary-700/50">
+            <a href="#" class="size-8 flex items-center justify-center text-primary-700/50 hover:text-primary-700 border border-primary-700/50 hover:border-primary-700 transition-all duration-500 ease-in-out">
               <i class="fab fa-twitter text-xl"></i>
             </a>
-            <a href="#" class="size-8 flex items-center justify-center text-primary-700/50 border border-primary-700/50">
+            <a href="#" class="size-8 flex items-center justify-center text-primary-700/50 hover:text-primary-700 border border-primary-700/50 hover:border-primary-700 transition-all duration-500 ease-in-out">
               <i class="fab fa-whatsapp text-xl"></i>
             </a>
           </div>

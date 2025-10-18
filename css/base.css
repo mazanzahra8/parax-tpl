@@ -100,10 +100,16 @@ body{
 
  
 
-.button5{
+.paraxButton1{
   @apply relative overflow-hidden flex gap-2 items-center justify-center  bg-primary text-white py-2 px-5
-  after:w-0 after:h-full after:bg-primary-900 after:absolute after:right-0 after:transition-all after:duration-500  after:ease-in-out after:left-0
-  after:hover:right-auto after:hover:left-0 after:hover:w-full;
+  after:w-0 after:h-full after:bg-primary-900 after:absolute after:right-0 after:transition-all after:duration-500 after:ease-in-out after:left-0
+  after:group-hover:right-auto after:group-hover:left-0 after:group-hover:w-full;
+}
+
+.paraxButton2{
+  @apply relative overflow-hidden flex gap-2 items-center justify-center border border-primary-50 text-primary-50 py-2 px-5
+  after:w-0 after:h-full after:bg-primary-50 after:absolute after:right-0 after:transition-all after:duration-500 after:ease-in-out after:left-0
+  after:group-hover:right-auto after:group-hover:left-0 after:group-hover:w-full group-hover:text-background transition-all duration-500 ease-in-out;
 }
 
 
@@ -120,37 +126,42 @@ body{
 }
 
 
-.glassBox::before {
+.glassBox::before,
+.glassBox::after {
   content: "";
   position: absolute;
   inset: 0;
+  border-radius: 9999px;
   padding: 2px;
-  border-radius: 9999px;
+  -webkit-mask: linear-gradient(white, white) content-box, linear-gradient(white, white);
+  mask: linear-gradient(white, white) content-box, linear-gradient(white, white);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  transition: opacity 0.6s ease-in-out; 
+}
+
+.glassBox::before {
   background: linear-gradient( #96979B26, #231F2080,#231F2080, #96979B26);
-  -webkit-mask: linear-gradient(white, white) content-box, linear-gradient(white, white);
-   mask: linear-gradient(white, white) content-box, linear-gradient(white, white);
-  -webkit-mask-composite: destination-out;
-  mask-composite: exclude;
+  opacity: 1;
+}
+
+.glassBox::after {
+  background: linear-gradient(#231F2080, #fffbe660, #fffbe660, #231F2080);
+  opacity: 0;
+}
+
+.group:hover .glassBox::before {
+  opacity: 0;
+}
+.group:hover .glassBox::after {
+  opacity: 1;
 }
 
 
 
-.cirBox{
-  @apply relative rounded-full bg-primary-900 flex items-center justify-center size-20 z-[1] -translate-x-10;
-}
 
 
-.cirBox::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  padding: 3px;
-  border-radius: 9999px;
-  background: linear-gradient(230deg ,#1BC9E2, #FFFFFF00, #A020F0);
-  -webkit-mask: linear-gradient(white, white) content-box, linear-gradient(white, white);
-   mask: linear-gradient(white, white) content-box, linear-gradient(white, white);
-  -webkit-mask-composite: destination-out;
-  mask-composite: exclude;
-}
+
+
 
 
