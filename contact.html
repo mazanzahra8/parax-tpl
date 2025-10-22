@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <title> نوین چوب</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/app.css" />
+  <link rel="stylesheet" href="css/fontawesome-all.min.css" />
+  <link rel="stylesheet" href="https://static.neshan.org/sdk/leaflet/v1.9.4/neshan-sdk/v1.0.8/index.css"/>
+  <script src="https://static.neshan.org/sdk/leaflet/v1.9.4/neshan-sdk/v1.0.8/index.js"></script>
+</head>
+
+<body class="bg-background">
+  
+    <header  x-data="{ lastY: 0, topbarHidden: false,  scrolled: false }"
+    @scroll.window="
+      topbarHidden = window.scrollY > lastY;
+      lastY = window.scrollY;
+      scrolled = (window.scrollY > 0);
+    ">
+      <nav class="z-[50] fixed top-0 left-0 right-0 transition-all duration-400 ease-in-out" :class="topbarHidden ? '-translate-y-[70px] opacity-100' : '-translate-y-0'">
+        <div :class="[
+        scrolled ? 'bg-background/60 backdrop-blur-2xl' : '',
+        topbarHidden ? 'opacity-0' : '']"  class="transition-all duration-400 ease-in-out py-3 border-b  border-primary-100/20">
+          <div class="container-standard">
+            <div class="flex items-center justify-between">
+              <div class="w-1/3 block lg:hidden">
+                <i class="fal fa-bars text-2xl text-primary"></i>
+              </div>
+              <div class="w-1/3 hidden lg:flex items-center gap-5">
+                <a href="#">
+                  <i class="fab fa-instagram text-primary-200 text-xl"></i>
+                </a>
+                <a href="#">
+                  <i class="fab fa-telegram-plane text-primary-200 text-xl"></i>
+                </a>
+                <a href="#">
+                  <i class="fab fa-twitter text-primary-200 text-xl"></i>
+                </a>
+                <a href="#">
+                  <i class="fab fa-whatsapp text-primary-200 text-xl"></i>
+                </a>
+              </div>
+              <div class="w-1/3 flex justify-center">
+                <a href="#">
+                  <img src="images/logo.svg" alt="" class="w-24">
+                </a>
+              </div>
+              <div class="w-1/3 flex justify-end items-center gap-4">
+                <i class="fal fa-search text-primary-50 text-xl lg:!hidden"></i>
+                <a href="#" class="flex group flex-col gap-1 items-end">
+                  <div class="paraxButton1 !p-3 lg:!py-2 lg:!px-5">
+                    <i class="fal fa-user z-[2]"></i>
+                    <span class="hidden lg:block z-[2]">
+                      ورود | ثبت‌نام
+                    </span>
+                  </div>
+                  <div class="h-[1px] w-2/3 lg:w-1/3 group-hover:w-full transition-all duration-500 ease-in-out bg-primary"></div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div :class="scrolled ? 'bg-background/60 backdrop-blur-2xl ' : ''" :class="topbarHidden  ? '' : ''" class=" py-3 hidden lg:block">
+          <div class="container-standard">
+            <div class="flex items-center justify-between">
+              <ul class="flex items-center justify-center gap-5 font-medium text-gray-50">
+                  <li class="relative pb-1 text-gray-50 transition-colors duration-300 hover:text-primary-500
+                  after:content-[''] after:absolute after:right-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-primary after:transition-all after:duration-300 hover:after:w-full">
+                    <a href="#">
+                      کالکشن‌ها
+                    </a>
+                  </li>
+                  <li class="relative pb-1 text-gray-50 transition-colors duration-300 hover:text-primary-500
+                  after:content-[''] after:absolute after:right-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-primary after:transition-all after:duration-300 hover:after:w-full">
+                    <a href="#">
+                      پروژه‌‌ها
+                    </a>
+                  </li>
+                  <li class="relative pb-1 text-gray-50 transition-colors duration-300 hover:text-primary-500
+                  after:content-[''] after:absolute after:right-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-primary after:transition-all after:duration-300 hover:after:w-full">
+                    <a href="#">
+                      نمایندگان
+                    </a>
+                  </li>
+                  <li class="relative pb-1 text-gray-50 transition-colors duration-300 hover:text-primary-500
+                  after:content-[''] after:absolute after:right-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-primary after:transition-all after:duration-300 hover:after:w-full">
+                    <a href="#">
+                      بلاگ
+                    </a>
+                  </li>
+                  <li class="relative pb-1 text-gray-50 transition-colors duration-300 hover:text-primary-500
+                  after:content-[''] after:absolute after:right-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-primary after:transition-all after:duration-300 hover:after:w-full">
+                    <a href="#">
+                      درباره‌ما
+                    </a>
+                  </li>
+                  <li class="relative pb-1 text-gray-50 transition-colors duration-300 hover:text-primary-500
+                  after:content-[''] after:absolute after:right-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-primary after:transition-all after:duration-300 hover:after:w-full">
+                    <a href="#">
+                      تماس‌ با ما
+                    </a>
+                  </li>
+              </ul>
+              <div class="flex items-center pl-3 bg-background/40 border border-background-700/80">
+                <input type="search" placeholder="جستجو کنید..." class="flex-grow placeholder-gray-900 font-light text-gray-50 bg-transparent focus:ring-0 border-none focus:border-none">
+                <i class="fal fa-search text-primary-50"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+  <main>
+    
+    <section class="mt-28 mb-16 lg:mt-48 lg:mb-20">
+        <div class="container-standard">
+            <div class="flex flex-col gap-14">
+                <div class="flex flex-col gap-4">
+                    <h2 class="font-bold text-primary text-xl lg:text-3xl">
+                        راه‌های ارتباطی
+                    </h2>
+                    <p class="text-base lg:text-xl font-light text-gray-50">
+                        برای برقراری ارتباط با ما، می‌توانید از اطلاعات زیر استفاده کنید یا فرم تماس را تکمیل نمایید.
+                    </p>
+                </div>
+                <div class="flex flex-col lg:flex-row items-center gap-20">
+                    <div class="w-full lg:w-3/5 order-first lg:order-none">
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-10 lg:gap-y-16">
+                            <a href="#" class="flex items-center gap-3">
+                                <div class="contact-glassBox">
+                                    <i class="fal fa-phone rotate-90 text-2xl"></i>
+                                </div>
+                                <div class="flex flex-col gap-2">
+                                    <h3 class="font-medium text-primary-100">
+                                        شماره تماس کارخانه:
+                                    </h3>
+                                    <div class="flex items-center gap-5 font-light text-gray-100">
+                                        ۰۲۱-۵۶۷۱۷۶۶۴
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#" class="flex items-center gap-3">
+                                <div class="contact-glassBox">
+                                    <i class="fal fa-phone rotate-90 text-2xl"></i>
+                                </div>
+                                <div class="flex flex-col gap-2">
+                                    <h3 class="font-medium text-primary-100">
+                                        شماره تماس دفتر و نمایشگاه:
+                                    </h3>
+                                    <span class="font-light text-gray-100">
+                                        ۰۲۱-۵۶۷۱۷۶۶۴
+                                    </span>
+                                </div>
+                            </a>
+                            <a href="#" class="flex items-center gap-3">
+                                <div class="contact-glassBox">
+                                    <i class="fal fa-envelope text-2xl"></i>
+                                </div>
+                                <div class="flex flex-col gap-2">
+                                    <h3 class="font-medium text-primary-100">
+                                        ایمیل:
+                                    </h3>
+                                    <span class="font-light text-gray-100">
+                                        contact@novinchoobco.com
+                                    </span>
+                                </div>
+                            </a>
+                            <a href="#" class="flex items-center gap-3">
+                                <div class="contact-glassBox">
+                                    <i class="fal fa-fax text-2xl"></i>
+                                </div>
+                                <div class="flex flex-col gap-2">
+                                    <h3 class="font-medium text-primary-100">
+                                        فکس:
+                                    </h3>
+                                    <span class="font-light text-gray-100">
+                                        ۰۲۱-۷۵۴۸۲۷۱۱
+                                    </span>
+                                </div>
+                            </a>
+                            <a href="#" class="flex items-center gap-3">
+                                <div class="contact-glassBox">
+                                    <i class="fal fa-map-signs text-2xl"></i>
+                                </div>
+                                <div class="flex flex-col gap-2">
+                                    <h3 class="font-medium text-primary-100">
+                                        کد پستی:
+                                    </h3>
+                                    <span class="font-light text-gray-100">
+                                        3313136686
+                                    </span>
+                                </div>
+                            </a>
+                            <a href="#" class="flex items-center gap-3">
+                                <div class="contact-glassBox">
+                                    <i class="fal fa-map-marker-alt text-2xl"></i>
+                                </div>
+                                <div class="flex flex-col gap-2">
+                                    <h3 class="font-medium text-primary-100">
+                                        آدرس:
+                                    </h3>
+                                    <address class="font-light not-italic text-gray-100">
+                                        احمدآباد مستوفی، میدان دکتر پارسا، شهرک صنایع بهسازی چوب، بلوک ۱۱E
+                                    </address>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-2/5 bg-secondary/20 border border-secondary-300/10 py-10 px-5">
+                        <form class="flex flex-col items-end gap-8">
+                            <div class="w-full flex gap-5">
+                                <div class="w-1/2 flex flex-col gap-5">
+                                    <label  class="flex items-center gap-2 text-gray-100">
+                                        <i class="fal fa-user text-primary-700"></i>
+                                        نام ‌و نام‌خانوادگی*
+                                    </label>
+                                    <input type="text" class="w-full bg-background-800 border-background-700/50 text-center text-primary-50 focus:border-primary-800 focus:ring-0 placeholder-gray-900/80">
+                                </div>
+                                <div class="w-1/2 flex flex-col gap-5">
+                                    <label  class="flex items-center gap-2 text-gray-100">
+                                        <i class="fal fa-phone rotate-90 text-primary-700"></i>
+                                        شماره تماس* 
+                                    </label>
+                                    <input type="tel" class="w-full bg-background-800 border-background-700/50 text-center text-primary-50 focus:border-primary-800 focus:ring-0 placeholder-gray-900/80">
+                                </div>
+                            </div>
+                            <div class="w-full flex flex-col gap-5 text-secondary-950">
+                                <label  class="flex items-center gap-2 text-gray-100">
+                                    <i class="fal fa-comment-dots text-primary-700"></i>
+                                    متن 
+                                </label>
+                                <textarea name="" rows="7" class="w-full bg-background-800 border-background-700/50 text-primary-50 focus:border-primary-800 focus:ring-0 placeholder-gray-900/80"></textarea>
+                            </div>
+                            <button type="submit" class="group flex flex-col gap-1 items-end">
+                                <div class="paraxButton1">
+                                  <span class="z-[2]">
+                                    ثبت درخواست
+                                  </span>
+                                  <i class="fal fa-arrow-left z-[2]"></i>
+                                </div>
+                                <div class="h-[1px] w-2/3 lg:w-1/3 group-hover:w-full transition-all duration-500 ease-in-out bg-primary"></div>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+  
+    <section class="container-standard-wide my-32">
+        <div class="w-full">
+            <div class="w-full aspect-[393/201] lg:aspect-[1440/427]">
+                <div id="map" class="aspect-[393/201] lg:aspect-[1440/427] w-full z-10"></div>
+            </div>
+            <script>
+                const storeMap = new L.Map("map", {
+                key: "web.b52e571f19c64502b6cadb1c55bde4d0",
+                maptype: "neshan",
+                poi: false,
+                traffic: false,
+                center: [35.64671909723348, 51.203742751856964],
+                zoom: 14,
+                })
+                
+                let marker = L.marker([35.64671909723348, 51.203742751856964]).addTo(storeMap);
+
+            </script>
+        </div>
+    </section>
+    
+    <!-- REPRESENTATION SECTION -->
+    <section class="min-h-screen flex items-center">
+        <div class="container-standard-wide">
+          <div class="flex flex-col gap-16 items-center">
+            <div class="flex flex-col items-center gap-4">
+              <h2 class="font-bold text-primary text-xl lg:text-3xl">
+                نمایندگی‌های فعال
+              </h2>
+              <p class="text-base lg:text-xl font-light text-gray-50">
+                دسترسی به خدمات پاراکس در سراسر کشور
+              </p>
+            </div>
+            <div x-data="{
+              init() {
+                  this.$nextTick(() => {
+                      new Swiper($refs.representationSwiper, {
+                          slidesPerView: 1.5,
+                          loop: true,
+                          spaceBetween: 20,
+                          breakpoints: {
+                              480: {
+                                  slidesPerView: 1.3,
+                              },
+                              768: {
+                                  slidesPerView: 2.2,
+                              },
+                              1024: {
+                                  slidesPerView: 2,
+                              },
+                              1280: {
+                                spaceBetween: 30,
+                                slidesPerView: 3.5,
+                              },
+                          },
+                      });
+                  });
+              }
+          }"
+            class="w-full pr-5 md:pr-10 lg:pr-16 xl:pr-28">
+              <div class="swiper" x-ref="representationSwiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <div class="group relative pt-16">
+                     <div class="absolute left-1/2 -translate-x-1/2 top-0 z-[1]">
+                      <a href="#" class="glassBox">
+                        <img src="images/representation-icon1.webp" alt="" class="w-28 lg:w-36">
+                      </a>
+                     </div>
+                      <div class="relative overflow-hidden flex flex-col gap-5 pb-5 pt-14 lg:pt-16 px-4 items-start w-full h-full bg-secondary/20 border border-secondary-300/10">
+                        <a href="#" class="absolute inset-0"></a>
+                        <h3 class="lg:text-lg font-medium text-primary-300 self-center">
+                          نمایندگی تهران
+                        </h3>
+                        <a href="#" class="flex items-start gap-2 text-gray-200 text-sm md:text-base font-light">
+                          <i class="fal fa-map-marker-alt text-primary-500"></i>
+                          <address class="not-italic line-clamp-2">
+                            احمد آباد مستوفی، میدان دکتر پارسا، شهرک صنایع بهسازی چوب، بلوک ۱۱E
+                          </address>
+                        </a>
+                        <a href="#" class="flex items-start gap-2 text-gray-200 font-light text-sm lg:text-base">
+                          <i class="fal fa-phone rotate-90 text-primary-500"></i>
+                          ۰۲۱-۷۵۴۸۲۰۰۰
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="group relative pt-16">
+                     <div class="absolute left-1/2 -translate-x-1/2 top-0 z-[1]">
+                      <a href="#" class="glassBox">
+                        <img src="images/representation-icon2.webp" alt="" class="w-28 lg:w-36">
+                      </a>
+                     </div>
+                      <div class="relative overflow-hidden flex flex-col gap-5 pb-5 pt-14 lg:pt-16 px-4 items-start w-full h-full bg-secondary/20 border border-secondary-300/10">
+                        <a href="#" class="absolute inset-0"></a>
+                        <h3 class="lg:text-lg font-medium text-primary-300 self-center">
+                          نمایندگی اصفهان
+                        </h3>
+                        <a href="#" class="flex items-start gap-2 text-gray-200 text-sm md:text-base font-light">
+                          <i class="fal fa-map-marker-alt text-primary-500"></i>
+                          <address class="not-italic line-clamp-2">
+                            احمد آباد مستوفی، میدان دکتر پارسا، شهرک صنایع بهسازی چوب، بلوک ۱۱E
+                          </address>
+                        </a>
+                        <a href="#" class="flex items-start gap-2 text-gray-200 font-light text-sm lg:text-base">
+                          <i class="fal fa-phone rotate-90 text-primary-500"></i>
+                          ۰۲۱-۷۵۴۸۲۰۰۰
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="group relative pt-16">
+                     <div class="absolute left-1/2 -translate-x-1/2 top-0 z-[1]">
+                      <a href="#" class="glassBox">
+                        <img src="images/representation-icon3.webp" alt="" class="w-28 lg:w-36">
+                      </a>
+                     </div>
+                      <div class="relative overflow-hidden flex flex-col gap-5 pb-5 pt-14 lg:pt-16 px-4 items-start w-full h-full bg-secondary/20 border border-secondary-300/10">
+                        <a href="#" class="absolute inset-0"></a>
+                        <h3 class="lg:text-lg font-medium text-primary-300 self-center">
+                          نمایندگی زنجان
+                        </h3>
+                        <a href="#" class="flex items-start gap-2 text-gray-200 text-sm md:text-base font-light">
+                          <i class="fal fa-map-marker-alt text-primary-500"></i>
+                          <address class="not-italic line-clamp-2">
+                            احمد آباد مستوفی، میدان دکتر پارسا، شهرک صنایع بهسازی چوب، بلوک ۱۱E
+                          </address>
+                        </a>
+                        <a href="#" class="flex items-start gap-2 text-gray-200 font-light text-sm lg:text-base">
+                          <i class="fal fa-phone rotate-90 text-primary-500"></i>
+                          ۰۲۱-۷۵۴۸۲۰۰۰
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="group relative pt-16">
+                     <div class="absolute left-1/2 -translate-x-1/2 top-0 z-[1]">
+                      <a href="#" class="glassBox">
+                        <img src="images/representation-icon1.webp" alt="" class="w-28 lg:w-36">
+                      </a>
+                     </div>
+                      <div class="relative overflow-hidden flex flex-col gap-5 pb-5 pt-14 lg:pt-16 px-4 items-start w-full h-full bg-secondary/20 border border-secondary-300/10">
+                        <a href="#" class="absolute inset-0"></a>
+                        <h3 class="lg:text-lg font-medium text-primary-300 self-center">
+                          نمایندگی تهران
+                        </h3>
+                        <a href="#" class="flex items-start gap-2 text-gray-200 text-sm md:text-base font-light">
+                          <i class="fal fa-map-marker-alt text-primary-500"></i>
+                          <address class="not-italic line-clamp-2">
+                            احمد آباد مستوفی، میدان دکتر پارسا، شهرک صنایع بهسازی چوب، بلوک ۱۱E
+                          </address>
+                        </a>
+                        <a href="#" class="flex items-start gap-2 text-gray-200 font-light text-sm lg:text-base">
+                          <i class="fal fa-phone rotate-90 text-primary-500"></i>
+                          ۰۲۱-۷۵۴۸۲۰۰۰
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="relative overflow-hidden bg-gradient-to-t z-0 from-background via-background/85 to-background/0 min-h-screen pt-10 flex justify-center items-center">
+      <img src="images/footer-bg.webp" alt="" class="absolute inset-0 -z-[1] w-full h-full object-cover opacity-20 mix-blend-color-burn">
+      <div class="container-standard">
+        <div class="flex flex-col items-center gap-24">
+          <div class="w-full grid grid-cols-1 lg:grid-cols-7 items-center gap-20 lg:gap-10">
+            <div class="lg:col-span-2 flex justify-center items-center gap-14">
+              <div class="flex flex-col items-center lg:items-start gap-5">
+                <h4 class="font-semibold text-primary-100">
+                  دسترسی سریع
+                </h4>
+                <ul class="flex flex-col gap-5 items-center lg:items-start text-gray-200">
+                  <li>
+                    <a href="#">
+                      تماس با ما
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      درباره ما
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      نمایندگی‌ها
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="flex flex-col items-center lg:items-start gap-5">
+                <h4 class="text-base font-semibold text-primary-100">
+                  لینک‌‌های مهم
+                </h4>
+                <ul class="flex flex-col items-center lg:items-start gap-5 text-gray-200">
+                  <li>
+                    <a href="#">
+                      آشپزخانه‌‌ها
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      اخبار و ویدئو
+                    </a>
+                  <li>
+                    <a href="#">
+                      طراحی سه‌بعدی 
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="lg:col-span-3 flex flex-col items-center justify-center gap-14 order-first lg:order-none">
+              <img src="images/logo.svg" alt="" class="w-36 lg:w-44">
+              <p class="lg:text-lg font-light text-gray-100 text-center">
+                بیش از یک دهه تجربه در طراحی و اجرای کابینت‌های مدرن و لوکس؛ درباره ما بیشتر بدانید.
+              </p>
+              <a href="#" class="group flex flex-col gap-1 items-end">
+                <div class="paraxButton2">
+                  <span class="z-[2]">
+                    درباره ما
+                  </span>
+                  <i class="fal fa-arrow-left z-[2]"></i>
+                </div>
+                <div class="h-[1px] w-2/3 lg:w-1/3 group-hover:w-full transition-all duration-500 ease-in-out bg-primary-50"></div>
+              </a>
+            </div>
+            <div class="lg:col-span-2 flex flex-col items-center lg:items-start gap-10 lg:gap-5">
+              <h4 class="text-base font-semibold text-primary-100">
+                راه‌های ارتباطی
+              </h4>
+             <div class="flex flex-col items-center lg:items-start gap-5">
+              <a href="#" class="flex flex-col lg:flex-row items-center lg:items-start gap-5">
+                <div class="flex gap-2 text-gray-200">
+                  <i class="fal fa-map-marker-alt text-lg text-primary-700"></i>
+                  آدرس:
+                </div>
+                <address href="#" class="not-italic font-light text-gray-200">
+                  کاشان، خیابان امیرکبیر، چهارراه سلمان
+                </address>
+              </a>
+              <a href="#" class="flex flex-col lg:flex-row items-center lg:items-start gap-5">
+                <div class="flex gap-2 text-gray-200">
+                  <i class="fal fa-headphones-alt text-lg text-primary-700"></i>
+                  تلفن:
+                </div>
+                <span class="text-gray-200 font-light">
+                  ۰۲۱-۷۵۴۸۲۰۰۰
+                </span>
+              </a>
+              <a href="#" class="flex flex-col lg:flex-row items-center lg:items-start gap-5">
+                <div class="flex gap-2 text-gray-200">
+                  <i class="fal fa-envelope text-lg text-primary-700"></i>
+                  ایمیل:
+                </div>
+                <span class="text-gray-200 font-light">
+                  contact@paraxwood.com
+                </span>
+              </a>
+             </div>
+            </div>
+          </div>
+          <div class="flex items-center gap-5">
+            <a href="#" class="size-8 flex items-center justify-center text-primary-700/50 hover:text-primary-700 border border-primary-700/50 hover:border-primary-700 transition-all duration-500 ease-in-out">
+              <i class="fab fa-instagram text-xl"></i>
+            </a>
+            <a href="#" class="size-8 flex items-center justify-center text-primary-700/50 hover:text-primary-700 border border-primary-700/50 hover:border-primary-700 transition-all duration-500 ease-in-out">
+              <i class="fab fa-telegram-plane text-xl"></i>
+            </a>
+            <a href="#" class="size-8 flex items-center justify-center text-primary-700/50 hover:text-primary-700 border border-primary-700/50 hover:border-primary-700 transition-all duration-500 ease-in-out">
+              <i class="fab fa-twitter text-xl"></i>
+            </a>
+            <a href="#" class="size-8 flex items-center justify-center text-primary-700/50 hover:text-primary-700 border border-primary-700/50 hover:border-primary-700 transition-all duration-500 ease-in-out">
+              <i class="fab fa-whatsapp text-xl"></i>
+            </a>
+          </div>
+        </div>
+        <div class="flex md:flex-row flex-col justify-between items-center gap-3 py-3 mt-10 text-xs text-gray-200 font-light">
+          <div class=" flex items-center gap-1">
+            <i class="fal fa-copyright"></i>
+            <span>
+              ۱۴۰۴   |  نوین چوب
+            </span>
+          </div>
+          <div class="flex items-center gap-1">
+            <i class="fal fa-heart"></i>
+            ارائه‌ای دیگر با افتخار  
+            <a href="#">
+                توسط  غرفه‌چی
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+  </footer>
+  
+  <script type="module" src="js/app.js"></script>
+</body>
+
+</html>

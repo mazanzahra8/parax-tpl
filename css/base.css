@@ -179,6 +179,29 @@ body{
 }
 
 
+.contact-glassBox{
+  @apply size-14 relative overflow-hidden rounded-full bg-representation-bg/40 text-primary-700 shrink-0 flex items-center justify-center;
+}
+
+.contact-glassBox::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  padding: 2px;
+  -webkit-mask: linear-gradient(white, white) content-box, linear-gradient(white, white);
+  mask: linear-gradient(white, white) content-box, linear-gradient(white, white);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  transition: opacity 0.6s ease-in-out; 
+}
+
+.contact-glassBox::before {
+  background: linear-gradient( #96979B26, #231F2080,#231F2080, #96979B26);
+  opacity: 1;
+}
+
+
 
 
 
