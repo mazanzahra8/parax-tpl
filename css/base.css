@@ -202,6 +202,42 @@ body{
 }
 
 
+/* HAMBURGER MENU STYLES START */
+
+
+.hamburgerSubMenu ul li a{
+  @apply  font-medium h-14 flex justify-between items-center pr-5 text-gray-50;
+}
+
+.hamburgerSubMenu ul>li>ul>li>a{
+  @apply font-light pr-8 bg-secondary-500/5 border border-primary-50/5;
+}
+
+.hamburgerSubMenu ul>li>ul>li .activeMenu{
+  @apply bg-secondary-500/5 
+}
+.hamburgerSubMenu ul li ul li ul li a{
+  @apply  font-extralight pr-12 bg-transparent border-none;
+}
+
+
+.hamburgerSubMenu .activeMenu::after{
+  content: "\f077" !important; 
+  font-family: "Font Awesome 5 Pro";
+  font-weight: 300;
+}
+
+.hamburgerSubMenu ul > li:has(ul) > a::after{
+  content: "\f078"; 
+  font-family: "Font Awesome 5 Pro";
+  font-weight: 300;
+  @apply  flex items-center text-primary-700 justify-center size-14;
+}
+
+/* HAMBURGER MENU STYLES END */
+
+
+
 
 
 

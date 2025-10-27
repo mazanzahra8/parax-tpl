@@ -9,7 +9,124 @@
   <link rel="stylesheet" href="css/fontawesome-all.min.css" />
 </head>
 
-<body class="bg-background">
+<body class="bg-background" x-data="{ showMenue: 'false'}">
+
+
+  <!-- HAMBERGURMENU -->
+  <div x-data="{ activeTab: 'main'}" class="flex flex-col gap-3 z-[100] h-full w-full fixed top-0 right-0 bg-background" x-show="showMenue === 'true'" x-cloak x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 translate-x-5" x-transition:enter-end="opacity-100 translate-x-0" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 translate-x-0" x-transition:leave-end="opacity-0 translate-x-5">
+    <div href="#" class="flex justify-between items-center py-4 px-5 bg-secondary-500/20 drop-shadow-2xl">
+      <div class="w-1/3 flex">
+        <a href="#" class="flex flex-col gap-1 items-end">
+          <div class="flex gap-2 items-center justify-center bg-primary size-10 text-white">
+            <i class="fal fa-user z-[2]"></i>
+          </div>
+          <div class="h-[1px] w-2/3 bg-primary"></div>
+        </a>
+      </div>
+      <a href="#" class="w-1/3 flex justify-center">
+        <img src="images/logo.svg" alt="" class="w-24">
+      </a>
+      <div class="w-1/3 flex flex-col items-end">
+        <i class="fal fa-times text-2xl text-primary-50" @click="showMenue = 'false'"></i>
+      </div>
+    </div>
+    <div class="hamburgerSubMenu">
+      <ul>
+        <li x-data="{showCategory: false}">
+          <a href="#" @click="showCategory = !showCategory" :class="showCategory ? 'activeMenu' : ''">
+            کالکشن‌ها
+          </a>
+          <ul x-show="showCategory" @click.away="showCategory = false" x-cloak x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 -translate-y-5" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-5">
+            <li x-data="{showCategory2 : false}">
+              <a href="#" @click="showCategory2 = !showCategory2" :class="showCategory2 ? 'activeMenu' : ''">
+                آشپزخانه 
+              </a>
+              <ul x-show="showCategory2" @click.away="showCategory2 = false"  x-cloak x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 -translate-y-5" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-5">
+                <li>
+                  <a href="#">
+                    مدرن
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    لوکس
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li x-data="{showCategory2 : false}">
+              <a href="#" @click="showCategory2 = !showCategory2" :class="showCategory2 ? 'activeMenu' : ''">
+                کلوزت
+              </a> 
+              <ul x-show="showCategory2" @click.away="showCategory2 = false"  x-cloak x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 -translate-y-5" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-5">
+                <li>
+                  <a href="#">
+                    مدرن
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    لوکس
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li x-data="{showCategory2 : false}">
+              <a href="#" @click="showCategory2 = !showCategory2" :class="showCategory2 ? 'activeMenu' : ''">
+                روشویی
+              </a>
+              <ul x-show="showCategory2" @click.away="showCategory2 = false"  x-cloak x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 -translate-y-5" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-5">
+                <li>
+                  <a href="#">
+                    مدرن
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    لوکس
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">
+            پروژه‌ها
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            نمایندگان
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            درباره ما
+          </a>
+        </li>
+        <li>
+          <a href="#">            
+            تماس با ما
+          </a>
+        </li>
+      </ul> 
+    </div>
+    <div class="flex justify-center items-center gap-7 bg-secondary-500/5 border-t border-t-primary-50/10 py-4 fixed bottom-0 left-0 right-0 z-30">
+      <a href="#" aria-label="اینستاگرام" class="text-2xl text-primary-200">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="#" aria-label="لینکدین" class="text-2xl text-primary-200">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+      <a href="#" aria-label="تلگرام" class="text-2xl text-primary-200">
+        <i class="fab fa-telegram-plane"></i>
+      </a>
+      <a href="#" aria-label="واتساپ" class="text-2xl text-primary-200">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+    </div>
+  </div>
   
   <header  x-data="{ lastY: 0, topbarHidden: false,  scrolled: false }"
   @scroll.window="
@@ -23,7 +140,7 @@
       topbarHidden ? 'lg:opacity-0' : '']"  class="transition-all duration-400 ease-in-out py-3 border-b  border-primary-100/20">
         <div class="container-standard">
           <div class="flex items-center justify-between">
-            <div class="w-1/3 block lg:hidden">
+            <div class="w-1/3 block lg:hidden" @click="showMenue = 'true'">
               <i class="fal fa-bars text-2xl text-primary"></i>
             </div>
             <div class="w-1/3 hidden lg:flex items-center gap-5">
@@ -905,13 +1022,13 @@
       <img src="images/footer-bg.webp" alt="" class="absolute inset-0 -z-[1] w-full h-full object-cover opacity-20 mix-blend-color-burn">
       <div class="container-standard overflow-hidden">
         <div class="flex flex-col items-center gap-24">
-          <div class="w-full grid grid-cols-1 xl:grid-cols-7 items-center gap-20 lg:gap-10">
+          <div class="w-full grid grid-cols-1 xl:grid-cols-7 items-center gap-20 xl:gap-10">
             <div class="xl:col-span-2 flex justify-center items-center gap-14">
-              <div class="flex flex-col items-center lg:items-start gap-5">
+              <div class="flex flex-col items-center xl:items-start gap-5">
                 <h4 class="font-semibold text-primary-100">
                   دسترسی سریع
                 </h4>
-                <ul class="flex flex-col gap-5 items-center lg:items-start text-gray-200">
+                <ul class="flex flex-col gap-5 items-center xl:items-start text-gray-200">
                   <li>
                     <a href="#">
                       تماس با ما
@@ -929,11 +1046,11 @@
                   </li>
                 </ul>
               </div>
-              <div class="flex flex-col items-center lg:items-start gap-5">
+              <div class="flex flex-col items-center xl:items-start gap-5">
                 <h4 class="text-base font-semibold text-primary-100">
                   لینک‌‌های مهم
                 </h4>
-                <ul class="flex flex-col items-center lg:items-start gap-5 text-gray-200">
+                <ul class="flex flex-col items-center xl:items-start gap-5 text-gray-200">
                   <li>
                     <a href="#">
                       آشپزخانه‌‌ها
@@ -951,7 +1068,7 @@
                 </ul>
               </div>
             </div>
-            <div class="xl:col-span-3 flex flex-col items-center justify-center gap-14 order-first lg:order-none">
+            <div class="xl:col-span-3 flex flex-col items-center justify-center gap-14 order-first xl:order-none">
               <img src="images/logo.svg" alt="" class="w-36 lg:w-44">
               <p class="lg:text-lg font-light text-gray-100 text-center">
                 بیش از یک دهه تجربه در طراحی و اجرای کابینت‌های مدرن و لوکس؛ درباره ما بیشتر بدانید.
@@ -966,12 +1083,12 @@
                 <div class="h-[1px] w-2/3 lg:w-1/3 group-hover:w-full transition-all duration-500 ease-in-out bg-primary-50"></div>
               </a>
             </div>
-            <div class="xl:col-span-2 flex flex-col items-center xl:items-start gap-10 lg:gap-5">
+            <div class="xl:col-span-2 flex flex-col items-center xl:items-start gap-10 xl:gap-5">
               <h4 class="text-base font-semibold text-primary-100">
                 راه‌های ارتباطی
               </h4>
-             <div class="flex flex-col items-center lg:items-start gap-5">
-              <a href="#" class="flex flex-col lg:flex-row items-center lg:items-start gap-5">
+             <div class="flex flex-col items-center xl:items-start gap-10 xl:gap-5">
+              <a href="#" class="flex flex-col xl:flex-row items-center xl:items-start gap-5">
                 <div class="flex gap-2 text-gray-200">
                   <i class="fal fa-map-marker-alt text-lg text-primary-700"></i>
                   آدرس:
@@ -980,7 +1097,7 @@
                   کاشان، خیابان امیرکبیر، چهارراه سلمان
                 </address>
               </a>
-              <a href="#" class="flex flex-col lg:flex-row items-center lg:items-start gap-5">
+              <a href="#" class="flex flex-col xl:flex-row items-center xl:items-start gap-5">
                 <div class="flex gap-2 text-gray-200">
                   <i class="fal fa-headphones-alt text-lg text-primary-700"></i>
                   تلفن:
@@ -989,7 +1106,7 @@
                   ۰۲۱-۷۵۴۸۲۰۰۰
                 </span>
               </a>
-              <a href="#" class="flex flex-col lg:flex-row items-center lg:items-start gap-5">
+              <a href="#" class="flex flex-col xl:flex-row items-center xl:items-start gap-5">
                 <div class="flex gap-2 text-gray-200">
                   <i class="fal fa-envelope text-lg text-primary-700"></i>
                   ایمیل:
