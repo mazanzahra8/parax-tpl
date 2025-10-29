@@ -39,7 +39,7 @@ module.exports = {
           800: '#253D3A',
           900: '#0D302C',
         },
-        gray: {
+        brand_gray: {
           DEFAULT: '#9C9D9D',
           50: '#F7F7F7',
           100: '#EEEEEF',
