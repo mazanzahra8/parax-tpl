@@ -239,6 +239,18 @@ body{
 
 
 
+.filterSelectForm{
+  background-position: left 0.5rem center;
+  padding-left: 2.5rem;
+  padding-right: 1rem;
+}
+
+.filterSelectForm option{
+  @apply bg-background-800/40  text-primary-50; 
+}
+
+
+
 
 
 
