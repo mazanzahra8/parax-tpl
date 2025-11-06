@@ -123,188 +123,267 @@
    </section>
 
     
-  <section class="bg-background relative">
+  <section class="bg-background relative pt-5">
 
-    
-     <!-- INTRODUCE SECTION -->
-    <section class="py-16 lg:py-32 container-standard">
-        <div class="flex flex-col gap-14">
-            <h2 class="font-bold text-primary text-xl lg:text-3xl">
-            آشپزخانه مدرن لوکس
+    <div class="bg-secondary-500/5 backdrop-blur-2xl py-3">
+        <div class="container-standard">
+          <div class="w-full flex items-center justify-between">
+            <h2 class="text-xl lg:text-3xl font-bold text-primary">
+                اینفینیتی ۰۱
             </h2>
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-5">
-            <div class="bg-secondary/20 flex flex-col lg:flex-row gap-4 lg:gap-3 items-center border border-secondary-50/5 text-brand_gray-50 text-base lg:text-lg py-8 pr-2">
-                <span class="text-primary-300">
-                    نوع  پروژه:
-                </span>
-                آشپزخانه لوکس
+            <div class="flex items-center gap-3 lg:gap-5">
+                <a href="#" class="flex group flex-col gap-1 items-end">
+                    <div class="paraxButton1 !p-3 lg:!py-2 lg:!px-5">
+                      <i class="fal fa-phone rotate-90 z-[2]"></i>
+                      <span class="hidden lg:block z-[2]">
+                        دریافت مشاوره
+                      </span>
+                    </div>
+                    <div class="h-[1px] w-2/3 lg:w-1/3 group-hover:w-full transition-all duration-500 ease-in-out bg-primary"></div>
+                </a>
+                <a href="#" class="flex flex-col items-center gap-2 py-2 px-3 lg:px-5 bg-secondary/20 border border-secondary-50/10 text-gray-100 text-sm lg:text-lg">
+                    <i class="fal fa-download text-lg lg:text-3xl"></i>
+                    دانلود کاتالوگ
+                </a>
             </div>
-            <div class="bg-secondary/20 flex flex-col lg:flex-row gap-4 lg:gap-3 items-center border border-secondary-50/5 text-brand_gray-50 text-base lg:text-lg py-8 pr-2">
-                <span class="text-primary-300">
-                    زمان اجرا:
-                </span>
-                ۳ هفته
-            </div>
-            <div class="bg-secondary/20 flex flex-col lg:flex-row gap-4 lg:gap-3 items-center border border-secondary-50/5 text-brand_gray-50 text-base lg:text-lg py-8 pr-2">
-                <span class="text-primary-300">
-                    مکان:
-                </span>
-                تهران، زعفرانیه
-            </div>
-            <div class="bg-secondary/20 flex flex-col lg:flex-row gap-4 lg:gap-3 items-center border border-secondary-50/10 text-brand_gray-50 text-base lg:text-lg py-8 pr-2">
-                <span class="text-primary-300">
-                    صرفه جویی در فضا:
-                </span>
-                ۲۰٪
-            </div>
-            </div>
-        </div>  
-   </section>
+          </div>
+        </div>
+    </div>
+    
+
+    <!-- GALLERY SECTION -->
+    <section class="flex flex-col 2xl:items-center gap-16 mt-16">
+        <div class="container-standard">
+            <p class="text-brand_gray-100 font-extralight text-base lg:text-lg">
+                نمونه‌ای از طراحی مدرن پاراکس با درب‌های بدون دستگیره، سطح مات و ترکیب چوب و سنگ است. این مدل قابلیت تغییر در ابعاد، رنگ و نوع متریال را دارد   نمونه‌ای از طراحی مدرن پاراکس با درب‌های بدون دستگیره، سطح مات و ترکیب چوب و سنگ است. این مدل قابلیت تغییر در ابعاد، رنگ و نوع متریال را دارد 
+            </p>
+        </div>
+        <div class="2xl:!max-w-[1120px] 2xl:pr-0 px-5 md:pr-10 lg:pr-16 xl:pr-28">
+          <div x-data="{
+            init() {
+                this.$nextTick(() => {
+                    const thumbSwiper = new Swiper(this.$refs.gallerySwiper2, {
+                        direction: window.innerWidth >= 1024 ? 'vertical' : 'horizontal',
+                        slidesPerView: 4,
+                        spaceBetween: 5,
+                        mousewheel: true,
+                        freeMode: true,
+                        watchSlidesVisibility: true,
+                        watchSlidesProgress: true,
+                        breakpoints: {
+                            480: { slidesPerView: 4.2},
+                            768: { slidesPerView: 5.2 },
+                            1024: { slidesPerView: 7.2 },
+                            1280: { slidesPerView: 6.5, spaceBetween: 30 },
+                        },
+                        on: {
+                            resize(swiper) {
+                                const newDir = window.innerWidth >= 1024 ? 'vertical' : 'horizontal';
+                                if (swiper.params.direction !== newDir) {
+                                    swiper.changeDirection(newDir);
+                                }
+                            },
+                        },
+                    });
+        
+                    const mainSwiper = new Swiper(this.$refs.gallerySwiper1, {
+                        slidesPerView: 1,
+                        spaceBetween: 16,
+                        centeredSlides: true,
+                        thumbs: {
+                            swiper: thumbSwiper,
+                        },
+                    });
+                });
+            }
+        }"
+          class="w-full flex flex-col-reverse lg:flex-row gap-3 lg:h-[500px]">
+              <div class="w-full lg:w-1/12 lg:h-full">
+                  <div class="swiper h-full" x-ref="gallerySwiper2">
+                      <div class="swiper-wrapper">
+                          <div class="swiper-slide">
+                          <div class="w-full aspect-[177/130] border-2 border-primary overflow-hidden cursor-pointer">
+                              <img src="images/collection3-gallery-img1.webp" alt="" class="w-full h-full object-cover">
+                          </div>
+                          </div>
+                          <div class="swiper-slide">
+                            <div class="w-full aspect-[177/130] border-2 border-primary overflow-hidden cursor-pointer">
+                                <img src="images/collection3-gallery-img1.webp" alt="" class="w-full h-full object-cover">
+                            </div>
+                          </div>
+                          <div class="swiper-slide">
+                            <div class="w-full aspect-[177/130] border-2 border-primary overflow-hidden cursor-pointer">
+                                <img src="images/collection3-gallery-img3.webp" alt="" class="w-full h-full object-cover">
+                            </div>
+                          </div>
+                          <div class="swiper-slide">
+                            <div class="w-full aspect-[177/130] border-2 border-primary overflow-hidden cursor-pointer">
+                                <img src="images/collection3-gallery-img3.webp" alt="" class="w-full h-full object-cover">
+                            </div>
+                          </div>
+                          <div class="swiper-slide">
+                            <div class="w-full aspect-[177/130] border-2 border-primary overflow-hidden cursor-pointer">
+                                <img src="images/collection3-gallery-img5.webp" alt="" class="w-full h-full object-cover">
+                            </div>
+                          </div>
+                          <div class="swiper-slide">
+                            <div class="w-full aspect-[177/130] border-2 border-primary overflow-hidden cursor-pointer">
+                                <img src="images/collection3-gallery-img6.webp" alt="" class="w-full h-full object-cover">
+                            </div>
+                          </div>
+                          <div class="swiper-slide">
+                            <div class="w-full aspect-[177/130] border-2 border-primary overflow-hidden cursor-pointer">
+                                <img src="images/collection3-gallery-img7.webp" alt="" class="w-full h-full object-cover">
+                            </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="w-full lg:w-11/12 aspect-[120/75] overflow-hidden">
+                  <div class="swiper !h-full" x-ref="gallerySwiper1">
+                      <div class="swiper-wrapper !h-full">
+                          <div class="swiper-slide !h-full">
+                              <div class="relative !h-full cursor-pointer">
+                                  <img src="images/collection3-gallery-img.webp" alt="" class="w-full h-full object-cover">
+                              </div>
+                          </div>
+                          <div class="swiper-slide !h-full">
+                              <div class="relative !h-full cursor-pointer">
+                                  <img src="images/collection3-gallery-img1.webp" alt="" class="w-full h-full object-cover">
+                              </div>
+                          </div>
+                          <div class="swiper-slide !h-full">
+                              <div class="relative !h-full cursor-pointer">
+                                  <img src="images/collection3-gallery-img2.webp" alt="" class="w-full h-full object-cover">
+                              </div>
+                          </div>
+                          <div class="swiper-slide !h-full">
+                              <div class="relative !h-full cursor-pointer">
+                                  <img src="images/collection3-gallery-img3.webp" alt="" class="w-full h-full object-cover">
+                              </div>
+                          </div>
+                          <div class="swiper-slide !h-full">
+                              <div class="relative !h-full cursor-pointer">
+                                  <img src="images/collection3-gallery-img3.webp" alt="" class="w-full h-full object-cover">
+                              </div>
+                          </div>
+                          <div class="swiper-slide !h-full">
+                              <div class="relative !h-full cursor-pointer">
+                                  <img src="images/collection3-gallery-img3.webp" alt="" class="w-full h-full object-cover">
+                              </div>
+                          </div>
+                          <div class="swiper-slide !h-full">
+                              <div class="relative !h-full cursor-pointer">
+                                  <img src="images/collection3-gallery-img5.webp" alt="" class="w-full h-full object-cover">
+                              </div>
+                          </div>
+                          <div class="swiper-slide !h-full">
+                              <div class="relative !h-full cursor-pointer">
+                                  <img src="images/collection3-gallery-img6.webp" alt="" class="w-full h-full object-cover">
+                              </div>
+                          </div>
+                          <div class="swiper-slide !h-full">
+                              <div class="relative !h-full cursor-pointer">
+                                  <img src="images/collection3-gallery-img7.webp" alt="" class="w-full h-full object-cover">
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+    </section>
 
 
-   <!-- PROJECT DETAILS -->
-   <section x-data="{ summary: false, challengesAndSolutions: false,  technicalDetails: false }"
+   
+
+   <!-- COLLECTION DETAILS -->
+   <section x-data="{ description: false, technicalDetails: false,  colorPalette: false }"
    class="my-16">
     <div  
       class="text-secondary-50 bg-background/60 backdrop-blur-2xl py-3 sticky top-16 z-[5]">
         <div class="container-standard">
           <ul class="productMenuList flex justify-between md:justify-normal md:gap-20 font-medium lg:font-semibold text-sm lg:text-lg">
             <li>
-                <a href="#" :class="summary && !challengesAndSolutions ? 'border-b-2 border-primary' : 'border-none'" class="pb-2">
-                    خلاصه پروژه
+                <a href="#description" :class="description && !technicalDetails ? 'border-b-2 border-primary' : 'border-none'" class="pb-2">
+                  توضیحات
                 </a>
             </li>
             <li>
-                <a href="#" :class="challengesAndSolutions && !technicalDetails ? 'border-b-2 border-primary' : 'border-none'" class="pb-2">
-                    چالش ها و راه حل‌ها
+                <a href="#technicalDetails" :class="technicalDetails && !colorPalette ? 'border-b-2 border-primary' : 'border-none'" class="pb-2">
+                  جزئیات فنی و مشخصات
                 </a>
             </li>
             <li>
-                <a href="#" :class="technicalDetails ? 'border-b-2 border-primary' : 'border-none'" class="pb-2">
-                    جزئیات فنی و مشخصات 
+                <a href="#colorPalette" :class="colorPalette ? 'border-b-2 border-primary' : 'border-none'" class="pb-2">
+                  پالت رنگی
                 </a>
             </li>
         </ul>
         </div>
     </div>
-   <div class="container-standard">
-    <div class="flex items-stretch justify-between gap-8">
-      <div class="flex flex-grow flex-col">
 
-          <div x-data="{
-            init() {
-              const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                  this.summary = entry.isIntersecting;
-                });
-              }, { threshold: 0.7 });
-              observer.observe(this.$el);
-            }
-          }"
-           class="flex flex-col gap-5 py-10  border-b border-t border-secondary-50/20">
-              <div class="flex gap-1 items-center">
-                  <div class="w-4 h-1 rounded-full bg-primary"></div>
-                  <h2 class="text-lg font-bold text-secondary-50">
-                      خلاصه پروژه
-                  </h2>
+      <div class="flex flex-col">
+
+          <div class="container-standard w-full" id="description">
+            <div x-data="{
+              init() {
+                const observer = new IntersectionObserver((entries) => {
+                  entries.forEach(entry => {
+                    this.description = entry.isIntersecting;
+                  });
+                }, { threshold: 0.7 });
+                observer.observe(this.$el);
+              }
+            }"
+             class="flex flex-col gap-5 py-10  border-b border-t border-secondary-50/20">
+                <div class="flex gap-1 items-center">
+                    <div class="w-4 h-1 rounded-full bg-primary"></div>
+                    <h2 class="text-lg font-bold text-secondary-50">
+                      توضیحات
+                    </h2>
+                </div>
+                <div id="productPageDescription">           
+                   <p class="text-brand_gray-100 text-lg font-extralight py-3">
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ هر مدل قابل شخصی‌سازی بر اساس نیاز و فضای شماست. برای طراحی اختصاصی، کافیست با تیم مشاوره تماس بگیرید
+                  </p> 
               </div>
-              <div id="productPageDescription">           
-                 <p class="text-brand_gray-100 text-lg font-extralight py-3">
-                  طراحی و اجرای یک آشپزخانه مدرن با تمرکز بر حداکثر کارایی در فضای محدود، هماهنگی متریال چوب و فلز و نورپردازی تاکیدی. نتیجه پروژه افزایش فضای ذخیره‌سازی تا ۲۰٪ و رضایت کامل کارفرما از ظاهر و عملکرد آشپزخانه بود
-                 </p> 
             </div>
           </div>
 
-          <div x-data="{
-            init() {
-              const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                  this.challengesAndSolutions = entry.isIntersecting;
-                });
-              }, { threshold: 0.7 });
-              observer.observe(this.$el);
-            }
-          }" 
-          class="flex flex-col gap-5 py-10 border-b border-secondary-50/20">
-              <div class="flex gap-1 items-center">
-                  <div class="w-4 h-1 rounded-full bg-primary"></div>
-                  <h2 class="text-lg font-bold text-secondary-50">
-                      چالش‌‌ها و راه‌حل‌ها
-                  </h2>
-              </div>
-              <div class="flex flex-col gap-5">
-
-                  <div class="flex flex-col gap-3">
-                      <h3 class="text-gray-100 text-base lg:text-lg">
-                          چالش‌ها:
-                         </h3>
-                        <div class="flex flex-col gap-1">
-                          <span class="text-gray-100 text-base lg:text-lg font-extralight">
-                              ۱ فضای محدود اما نیاز به ذخیره‌سازی حداکثری
-                            </span>
-                            <span class="text-gray-100 text-base lg:text-lg font-extralight">
-                              ۲ هماهنگی بین متریال چوب طبیعی و فلز براق
-                           </span>
-                            <span class="text-gray-100 text-base lg:text-lg font-extralight">
-                              ۳ نورپردازی تاکیدی و مخفی برای ایجاد جلوه مدرن
-                           </span>
-                        </div>
-                     </div>
-                      
-                     <div class="flex flex-col gap-3">
-                      <h3 class="text-gray-100 text-base lg:text-lg">
-                          راه‌حل‌ها :
-                      </h3>
-                      <div class="flex flex-col gap-1">
-                      <span class="text-gray-100 text-base lg:text-lg font-extralight">
-                          ۱ طراحی کابینت تا سقف و کشوهای مخفی
-                          </span>
-                          <span class="text-gray-100 text-base lg:text-lg font-extralight">
-                          ۲ ترکیب MDF با روکش چوب طبیعی و لبه‌های آلومینیومی
-                          </span>
-                          <span class="text-gray-100 text-base lg:text-lg font-extralight">
-                          ۳ نصب نور مخفی LED زیر کابینت و نور تاکیدی بالای اپن 
-                          </span>
-                      </div>
-                     </div>
-              </div>
-             
-          </div>
-
-          <div x-data="{
-            init() {
-              const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                  this.technicalDetails = entry.isIntersecting;
-                });
-              }, { threshold: 0.7 });
-              observer.observe(this.$el);
-            }
-          }" 
-          class="flex flex-col gap-5 py-10">
-
-              <div class="flex gap-1 items-center">
-                  <div class="w-4 h-1 rounded-full bg-primary"></div>
-                  <h2 class="text-lg font-bold text-secondary-50">
+          <div class="container-standard w-full" id="technicalDetails">
+            <div x-data="{
+              init() {
+                const observer = new IntersectionObserver((entries) => {
+                  entries.forEach(entry => {
+                    this.technicalDetails = entry.isIntersecting;
+                  });
+                }, { threshold: 0.7 });
+                observer.observe(this.$el);
+              }
+            }" 
+            class="flex flex-col gap-5 py-10 border-b border-secondary-50/20">
+                <div class="flex gap-1 items-center">
+                    <div class="w-4 h-1 rounded-full bg-primary"></div>
+                    <h2 class="text-lg font-bold text-secondary-50">
                       جزئیات فنی و مشخصات
-                  </h2>
-              </div>
-              
-              <div class="flex flex-col gap-4 lg:gap-2">
+                    </h2>
+                </div>
+                <div class="flex flex-col gap-4 lg:gap-2 pr-3">
                   <div class="flex items-start gap-1 text-brand_gray-100 text-lg">
                       <div class="flex items-center gap-2">
                           <div class="size-2 rounded-full bg-brand_gray-100"></div>
-                          متریال:
-                      </div>
+                          متریال بدنه:
+                        </div>
                       <span class="font-extralight">
-                          MDF با روکش چوب طبیعی، شیشه مات و فلز آلومینیومی
+                        MDF با روکش چوب طبیعی، شیشه مات و فلز آلومینیومی
                       </span>                        
                   </div>
                   <div class="flex items-start gap-1 text-brand_gray-100 text-lg">
                       <div class="flex items-center gap-2">
                           <div class="size-2 rounded-full bg-brand_gray-100"></div>
-                          سیستم‌ها:
-                      </div>
+                          ضخامت صفحه:
+                        </div>
                       <span class="font-extralight">
                           کشوهای نرم‌بازشو، سیستم کابینت تا سقف، نور مخفی LED
                       </span>                        
@@ -312,7 +391,7 @@
                   <div class="flex items-start gap-1 text-brand_gray-100 text-lg">
                       <div class="flex items-center gap-2">
                           <div class="size-2 rounded-full bg-brand_gray-100"></div>
-                          فناوری‌ها:
+                          نوع بازشو: 
                       </div>
                       <span class="font-extralight">
                           ریل مخفی، لولا soft-close، نورپردازی هوشمند با dimmer
@@ -321,232 +400,201 @@
                   <div class="flex items-start gap-1 text-brand_gray-100 text-lg">
                       <div class="flex items-center gap-2">
                           <div class="size-2 rounded-full bg-brand_gray-100"></div>
-                          ابعاد:
+                          برند یراق‌آلات:
                       </div>
                       <span class="font-extralight">
                           جزیره ۲.۵x۱.۲ متر، کابینت‌ها تا سقف ۲.۷ متر
                       </span>                        
                   </div>
-              </div>                
+              </div>  
+               
+            </div>
+          </div>
 
+          <div class="container-standard container-standard-mobile-full-width pr-5 md:pr-0 w-full" id="colorPalette">
+            <div x-data="{
+              init() {
+                const observer = new IntersectionObserver((entries) => {
+                  entries.forEach(entry => {
+                    this.colorPalette = entry.isIntersecting;
+                  });
+                }, { threshold: 0.7 });
+                observer.observe(this.$el);
+              }
+            }" 
+            class="flex flex-col gap-8 py-10">
+  
+                <div class="flex gap-1 items-center">
+                    <div class="w-4 h-1 rounded-full bg-primary"></div>
+                    <h2 class="text-lg font-bold text-secondary-50">
+                      پالت رنگ متریال
+                    </h2>
+                </div>
+        
+                <div x-data="{
+                  init() {
+                      this.$nextTick(() => {
+                          new Swiper($refs.gallerySwiper, {
+                              slidesPerView: 2.6,
+                              grid: {
+                                rows: 2,
+                                fill: 'row'
+                              },
+                              spaceBetween: 20,
+                              breakpoints: {
+                                  480: {
+                                      slidesPerView: 1.3,
+                                  },
+                                  768: {
+                                      slidesPerView: 4.5,
+                                  },
+                                  1024: {
+                                      slidesPerView: 5.3,
+                                  },
+                                  1280: {
+                                    spaceBetween: 30,
+                                    slidesPerView: 6,
+                                  },
+                              },
+                          });
+                      });
+                  }
+              }"
+                class="lg:w-full">
+                  <div class="swiper" x-ref="gallerySwiper">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <div class="flex flex-col gap-3 items-center">
+                          <div class="aspect-square rounded border border-primary-50/50 overflow-hidden">
+                            <img src="images/coll3-color4.webp" alt="" class="w-full h-full object-cover">
+                          </div>
+                          <h3 class="text-primary-50 lg:text-lg lg:font-medium text-center">
+                            NORDIC ASH
+                          </h3>
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="flex flex-col gap-3 items-center">
+                          <div class="aspect-square rounded border border-primary-50/50 overflow-hidden">
+                            <img src="images/coll3-color3.webp" alt="" class="w-full h-full object-cover">
+                          </div>
+                          <h3 class="text-primary-50 lg:text-lg lg:font-medium text-center">
+                            911 NATURAL_OAK
+                          </h3>
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="flex flex-col gap-3 items-center">
+                          <div class="aspect-square rounded border border-primary-50/50 overflow-hidden">
+                            <img src="images/coll3-color2.webp" alt="" class="w-full h-full object-cover">
+                          </div>
+                          <h3 class="text-primary-50 lg:text-lg lg:font-medium text-center">
+                            920 LIGHT WALNUT
+                          </h3>
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="flex flex-col gap-3 items-center">
+                          <div class="aspect-square rounded border border-primary-50/50 overflow-hidden">
+                            <img src="images/coll3-color1.webp" alt="" class="w-full h-full object-cover">
+                          </div>
+                          <h3 class="text-primary-50 lg:text-lg lg:font-medium text-center">
+                            924 GREY OAK
+                          </h3>
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="flex flex-col gap-3 items-center">
+                          <div class="aspect-square rounded border border-primary-50/50 overflow-hidden">
+                            <img src="images/coll3-color8.webp" alt="" class="w-full h-full object-cover">
+                          </div>
+                          <h3 class="text-primary-50 lg:text-lg lg:font-medium text-center">
+                            812 GRAY
+                          </h3>
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="flex flex-col gap-3 items-center">
+                          <div class="aspect-square rounded border border-primary-50/50 overflow-hidden">
+                            <img src="images/coll3-color7.webp" alt="" class="w-full h-full object-cover">
+                          </div>
+                          <h3 class="text-primary-50 lg:text-lg lg:font-medium text-center">
+                            811 WHITE
+                          </h3>
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="flex flex-col gap-3 items-center">
+                          <div class="aspect-square rounded border border-primary-50/50 overflow-hidden">
+                            <img src="images/coll3-color6.webp" alt="" class="w-full h-full object-cover">
+                          </div>
+                          <h3 class="text-primary-50 lg:text-lg lg:font-medium text-center">
+                            810 CREAM
+                          </h3>
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="flex flex-col gap-3 items-center">
+                          <div class="aspect-square rounded border border-primary-50/50 overflow-hidden">
+                            <img src="images/coll3-color5.webp" alt="" class="w-full h-full object-cover">
+                          </div>
+                          <h3 class="text-primary-50 lg:text-lg lg:font-medium text-center">
+                            813 CAPPUCCINO
+                          </h3>
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="flex flex-col gap-3 items-center">
+                          <div class="aspect-square rounded border border-primary-50/50 overflow-hidden">
+                            <img src="images/coll3-color2.webp" alt="" class="w-full h-full object-cover">
+                          </div>
+                          <h3 class="text-primary-50 lg:text-lg lg:font-medium text-center">
+                            920 LIGHT WALNUT
+                          </h3>
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="flex flex-col gap-3 items-center">
+                          <div class="aspect-square rounded border border-primary-50/50 overflow-hidden">
+                            <img src="images/coll3-color1.webp" alt="" class="w-full h-full object-cover">
+                          </div>
+                          <h3 class="text-primary-50 lg:text-lg lg:font-medium text-center">
+                            924 GREY OAK
+                          </h3>
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="flex flex-col gap-3 items-center">
+                          <div class="aspect-square rounded border border-primary-50/50 overflow-hidden">
+                            <img src="images/coll3-color8.webp" alt="" class="w-full h-full object-cover">
+                          </div>
+                          <h3 class="text-primary-50 lg:text-lg lg:font-medium text-center">
+                            812 GRAY
+                          </h3>
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="flex flex-col gap-3 items-center">
+                          <div class="aspect-square rounded border border-primary-50/50 overflow-hidden">
+                            <img src="images/coll3-color6.webp" alt="" class="w-full h-full object-cover">
+                          </div>
+                          <h3 class="text-primary-50 lg:text-lg lg:font-medium text-center">
+                            810 CREAM
+                          </h3>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                   
+            </div>
           </div>
       </div>
-      
-    </div>
-   </div>
+
 
   </section>
 
 
-
-   
-   <!-- PROJECT GALLERY -->
-   <section class="flex items-center my-32">
-    <div class="container-standard-wide">
-      <div x-data="{
-          init() {
-              this.$nextTick(() => {
-                  new Swiper($refs.projectGallerySwiper, {
-                      slidesPerView: 1.4,
-                      loop: true,
-                      spaceBetween: 5,
-                      centeredSlides: true,
-                      breakpoints: {
-                          480: {
-                              slidesPerView: 1.3,
-                          },
-                          768: {
-                              slidesPerView: 2.2,
-                          },
-                          1024: {
-                              slidesPerView: 2,
-                          },
-                          1280: {
-                            spaceBetween: 20,
-                            slidesPerView: 2,
-                          },
-                      },
-                      pagination: {
-                          el: $refs.projectGallerySwiperPagination,
-                          clickable: true,
-                        },
-                        navigation: {
-                          nextEl: $refs.projectGallerySwiperNext,
-                          prevEl: $refs.projectGallerySwiperPrev,
-                        },	
-                  });
-              });
-          }
-      }"
-      class="relative w-full flex flex-col gap-16">
-      <div class="absolute bottom-7 lg:top-1/2  left-1/4 -translate-x-10 z-[2] size-12 hidden lg:flex items-center justify-center bg-background/80 backdrop-blur-md hover:bg-primary text-brand_gray-50 cursor-pointer transition-all duration-300 ease-in-out" x-ref="projectGallerySwiperNext">
-          <i class="fal fa-arrow-left text-xl"></i>
-        </div>
-        <div class="absolute bottom-7 lg:top-1/2 right-1/4 translate-x-10 z-[2] size-12 hidden lg:flex items-center justify-center bg-background/80 backdrop-blur-md hover:bg-primary text-brand_gray-50 cursor-pointer transition-all duration-300 ease-in-out" x-ref="projectGallerySwiperPrev">
-          <i class="fal fa-arrow-right text-xl"></i>
-        </div>
-        <div class="flex flex-col items-center gap-4">
-          <h2 class="font-bold text-primary text-xl lg:text-3xl">
-            تصاویر پروژه
-         </h2>
-          <p class="text-base lg:text-xl font-light text-brand_gray-50">
-            جزئیاتی از طراحی‌هایی که تفاوت را رقم زدند
-          </p>
-        </div>
-        <div class="w-full">
-          <div class="swiper w-full" id="projectGallerySwiper" x-ref="projectGallerySwiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <div class="w-full h-full aspect-[327/242] lg:aspect-[938/528] relative">
-                    <div class="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 size-14 bg-primary flex items-center justify-center text-white text-xl cursor-pointer">
-                        <i class="fal fa-play"></i>
-                    </div>
-                    <img src="images/collection3-project-gallery.webp" alt="" class="w-full h-full object-cover">
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="w-full h-full aspect-[327/242] lg:aspect-[938/528] relative">
-                    <div class="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 size-14 bg-primary flex items-center justify-center text-white text-xl cursor-pointer">
-                        <i class="fal fa-play"></i>
-                    </div>
-                    <img src="images/collection3-project-gallery.webp" alt="" class="w-full h-full object-cover">
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="w-full h-full aspect-[327/242] lg:aspect-[938/528] relative">
-                    <div class="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 size-14 bg-primary flex items-center justify-center text-white text-xl cursor-pointer">
-                        <i class="fal fa-play"></i>
-                    </div>
-                    <img src="images/collection3-project-gallery.webp" alt="" class="w-full h-full object-cover">
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="w-full h-full aspect-[327/242] lg:aspect-[938/528] relative">
-                    <div class="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 size-14 bg-primary flex items-center justify-center text-white text-xl cursor-pointer">
-                        <i class="fal fa-play"></i>
-                    </div>
-                    <img src="images/collection3-project-gallery.webp" alt="" class="w-full h-full object-cover">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="flex justify-center" id="projectGallerySwiperPagination" x-ref="projectGallerySwiperPagination"></div>
-      </div>
-    </div>
-   </section>
-
-   
-    <!-- OUR HISTORY SECTION -->
-    <section class="container-standard py-32 my-16">
-        <div class="relative">
-          <div class="w-1 lg:w-full h-full lg:h-3 bg-primary absolute right-1/2 translate-x-1/2 lg:top-1/2">
-            <div class="w-full h-full lg:w-11/12 mx-auto grid grid-cols-1 lg:grid-cols-5 gap-10">
-            <div class="relative flex items-center justify-center">
-                <div class="bg-brand_gray-400 flex rounded-full size-4 lg:size-6 lg:-translate-y-2">
-                    <div class="size-4"></div>
-                </div>
-                <div class="hidden lg:block absolute -left-1/2 translate-x-14 -top-1 text-background">
-                    <i class="fas fa-chevron-right"></i>
-                    <i class="fas fa-chevron-right"></i>
-                </div>
-                <div class="lg:hidden absolute -bottom-10 flex flex-col text-background">
-                    <i class="fas fa-chevron-down"></i>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-            </div>
-            <div class="relative flex items-center justify-center">
-                <div class="bg-brand_gray-400 flex rounded-full size-4 lg:size-6 lg:-translate-y-2">
-                    <div class="size-4"></div>
-                </div>
-                <div class="hidden lg:block absolute -left-1/2 translate-x-14  -top-1 text-background">
-                    <i class="fas fa-chevron-right"></i>
-                    <i class="fas fa-chevron-right"></i>
-                </div>
-                <div class="lg:hidden absolute -bottom-10 flex flex-col text-background">
-                    <i class="fas fa-chevron-down"></i>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-            </div>
-            <div class="relative flex items-center justify-center">
-                <div class="bg-brand_gray-400 flex rounded-full size-4 lg:size-6 lg:-translate-y-2">
-                    <div class="size-4"></div>
-                </div>
-                <div class="hidden lg:block absolute -left-1/2 translate-x-14 -top-1 text-background">
-                    <i class="fas fa-chevron-right"></i>
-                    <i class="fas fa-chevron-right"></i>
-                </div>
-                <div class="lg:hidden absolute -bottom-10 flex flex-col text-background">
-                    <i class="fas fa-chevron-down"></i>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-            </div>
-            <div class="relative flex items-center justify-center">
-                <div class="bg-brand_gray-400 flex rounded-full size-4 lg:size-6 lg:-translate-y-2">
-                    <div class="size-4"></div>
-                </div>
-                <div class="hidden lg:block absolute -left-1/2 translate-x-14 -top-1 text-background">
-                    <i class="fas fa-chevron-right"></i>
-                    <i class="fas fa-chevron-right"></i>
-                </div>
-                <div class="lg:hidden absolute -bottom-10 flex flex-col text-background">
-                    <i class="fas fa-chevron-down"></i>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-            </div>
-            <div class="flex items-center justify-center">
-                <div class="bg-brand_gray-400 flex rounded-full size-4 lg:size-6 lg:-translate-y-2">
-                    <div class="size-4"></div>
-                </div>
-            </div>
-            </div>
-          </div>
-          <div class="w-full lg:w-11/12 mx-auto grid grid-cols-1 lg:grid-cols-5 gap-10">
-            <div class="w-1/2 lg:w-full pl-5 lg:pl-0 flex flex-col lg:grow justify-center lg:-translate-y-16 gap-2 text-secondary-100 h-full order-5 lg:order-none">
-            <p class="text-base font-light text-center">
-                تائید نهایی کارفرما
-            </p>
-            <span class="w-full text-xl font-medium text-center order-first lg:order-none">
-                تحویل پروژه
-            </span>
-            </div>
-            <div class="w-1/2 lg:w-full pr-5 lg:pr-0 flex flex-col lg:grow justify-center lg:translate-y-20 gap-2 text-secondary-100 h-full order-4 lg:order-none place-self-end">
-            <span class="w-full text-xl font-medium text-center">
-                نورپردازی و جزئیات
-            </span>
-            <p class="text-base font-light text-center">
-                نصب LED و بررسی عملکرد
-            </p>
-            </div>
-            <div class="w-1/2 lg:w-full pl-5 lg:pl-0 flex flex-col lg:grow justify-center lg:-translate-y-16 gap-2 text-secondary-100  h-full order-3 lg:order-none">
-            <p class="text-base font-light text-center">
-                نصب کابینت و اپن
-            </p>
-            <span class="w-full text-xl font-medium text-center order-first lg:order-none">
-                اجرا و نصب کابینت
-            </span>
-            </div>
-            <div class="w-1/2 lg:w-full pr-5 lg:pr-0 flex flex-col lg:grow  lg:justify-center lg:translate-y-20 gap-2 text-secondary-100 h-full order-2 lg:order-none place-self-end">
-                <span class="w-full text-xl font-medium text-center">
-                    انتخاب متریال
-                </span>
-                <p class="text-sm font-light text-center">
-                    MDF، فلز، نورپردازی
-                </p>
-            </div>
-            <div class="w-1/2 lg:w-full pl-5 lg:pl-0 flex flex-col lg:grow justify-center lg:-translate-y-16 gap-2 text-secondary-100 h-full order-1 lg:order-none">
-                <p class="text-base font-light text-center">
-                    نقشه و مدل سه‌بعدی
-                </p>
-                <span class="w-full text-xl font-medium text-center order-first lg:order-none">
-                    طراحی اولیه
-                </span>
-            </div>
-          </div>
-          </div>
-        </div>
-    </section>
-    
 
      <!-- SIMILAR PROJECTS SECTION -->
      <section class="container-standard container-standard-mobile-full-width my-32">
@@ -579,67 +627,59 @@
           });
         }
     }"  
-        class="flex flex-col items-center gap-16">
-        <div class="flex flex-col items-center gap-4">
+        class="flex flex-col items-center gap-10 lg:gap-16">
+        <div class="flex flex-col items-center gap-4 px-5">
           <h2 class="font-bold text-primary text-xl lg:text-3xl">
-            پروژه‌های مشابه
+            همچنین ببینید
           </h2>
-          <p class="text-base lg:text-xl font-light text-brand_gray-50">
-            جزئیاتی از طراحی‌هایی که تفاوت را رقم زدند
+          <p class="text-base lg:text-xl font-light text-brand_gray-50 text-center">
+            مدل‌های دیگری از همین مجموعه که ممکن است با سلیقه‌ی شما هماهنگ باشند.
           </p>
         </div>
         <div class="w-full pr-5 lg:pr-0">
           <div class="swiper !flex !h-full" x-ref="similarProjectSwiper">
             <div class="swiper-wrapper !h-auto">
               <div class="swiper-slide !h-full">
-                <div class="relative w-full h-full group overflow-hidden cursor-pointer aspect-[256/200] lg:aspect-[411/304] select-none transition-all duration-[1300ms] ease-out will-change-transform">
+                <div class="relative w-full h-full group overflow-hidden cursor-pointer aspect-[411/304] lg:aspect-[411/304] select-none transition-all duration-[1300ms] ease-out will-change-transform">
                   <a href="#" class="absolute inset-0 z-[2]"></a>
-                  <img src="images/coll3-similar-project-img.webp" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                  <div class="bg-primary text-white px-4 py-1 absolute top-2 left-2 text-sm z-[3]">
-                    زعفرانیه
-                  </div>
-                  <div class="bg-gradient-to-t from-black h-3/4 flex items-end pb-3 pr-4 font-medium text-brand_gray-100 absolute left-0 right-0 bottom-0 
-                    transition-all duration-500 group-hover:pb-6 ">
-                    آشپزخانه مدرن، ۲۰۲۵
+                  <img src="images/collection1-1.webp" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                  
+                  <div class="bg-black/30 py-3 backdrop-blur-sm flex items-end pb-3 pr-4 font-semibold text-brand_gray-50 absolute left-0 right-0 bottom-0 
+                    transition-all duration-500 group-hover:pb-6  group-hover:bg-black/40 group-hover:backdrop-blur">
+                    اینفینیتی۰۲
                   </div>
                 </div>
               </div>
               <div class="swiper-slide !h-full">
-                <div class="relative w-full h-full group overflow-hidden cursor-pointer aspect-[256/200] lg:aspect-[411/304] select-none transition-all duration-[1300ms] ease-out will-change-transform">
+                <div class="relative w-full h-full group overflow-hidden cursor-pointer aspect-[411/304] lg:aspect-[411/304] select-none transition-all duration-[1300ms] ease-out will-change-transform">
                   <a href="#" class="absolute inset-0 z-[2]"></a>
-                  <img src="images/coll3-similar-project-img.webp" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                  <div class="bg-primary text-white px-4 py-1 absolute top-2 left-2 text-sm z-[3]">
-                    زعفرانیه
-                  </div>
-                  <div class="bg-gradient-to-t from-black h-3/4 flex items-end pb-3 pr-4 font-medium text-brand_gray-100 absolute left-0 right-0 bottom-0 
-                    transition-all duration-500 group-hover:pb-6 ">
-                    آشپزخانه مدرن، ۲۰۲۵
+                  <img src="images/collection1-2.webp" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                  
+                  <div class="bg-black/30 py-3 backdrop-blur-sm flex items-end pb-3 pr-4 font-semibold text-brand_gray-50 absolute left-0 right-0 bottom-0 
+                    transition-all duration-500 group-hover:pb-6  group-hover:bg-black/40 group-hover:backdrop-blur">
+                    اینفینیتی۰۳
                   </div>
                 </div>
               </div>
               <div class="swiper-slide !h-full">
-                <div class="relative w-full h-full group overflow-hidden cursor-pointer aspect-[256/200] lg:aspect-[411/304] select-none transition-all duration-[1300ms] ease-out will-change-transform">
+                <div class="relative w-full h-full group overflow-hidden cursor-pointer aspect-[411/304] lg:aspect-[411/304] select-none transition-all duration-[1300ms] ease-out will-change-transform">
                   <a href="#" class="absolute inset-0 z-[2]"></a>
-                  <img src="images/coll3-similar-project-img.webp" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                  <div class="bg-primary text-white px-4 py-1 absolute top-2 left-2 text-sm z-[3]">
-                    زعفرانیه
-                  </div>
-                  <div class="bg-gradient-to-t from-black h-3/4 flex items-end pb-3 pr-4 font-medium text-brand_gray-100 absolute left-0 right-0 bottom-0 
-                    transition-all duration-500 group-hover:pb-6 ">
-                    آشپزخانه مدرن، ۲۰۲۵
+                  <img src="images/collection1-3.webp" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                  
+                  <div class="bg-black/30 py-3 backdrop-blur-sm flex items-end pb-3 pr-4 font-semibold text-brand_gray-50 absolute left-0 right-0 bottom-0 
+                    transition-all duration-500 group-hover:pb-6  group-hover:bg-black/40 group-hover:backdrop-blur">
+                    اینفینیتی۰۴
                   </div>
                 </div>
               </div>
               <div class="swiper-slide !h-full">
-                <div class="relative w-full h-full group overflow-hidden cursor-pointer aspect-[256/200] lg:aspect-[411/304] select-none transition-all duration-[1300ms] ease-out will-change-transform">
+                <div class="relative w-full h-full group overflow-hidden cursor-pointer aspect-[411/304] lg:aspect-[411/304] select-none transition-all duration-[1300ms] ease-out will-change-transform">
                   <a href="#" class="absolute inset-0 z-[2]"></a>
-                  <img src="images/coll3-similar-project-img.webp" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                  <div class="bg-primary text-white px-4 py-1 absolute top-2 left-2 text-sm z-[3]">
-                    زعفرانیه
-                  </div>
-                  <div class="bg-gradient-to-t from-black h-3/4 flex items-end pb-3 pr-4 font-medium text-brand_gray-100 absolute left-0 right-0 bottom-0 
-                    transition-all duration-500 group-hover:pb-6 ">
-                    آشپزخانه مدرن، ۲۰۲۵
+                  <img src="images/collection1-3.webp" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                  
+                  <div class="bg-black/30 py-3 backdrop-blur-sm flex items-end pb-3 pr-4 font-semibold text-brand_gray-50 absolute left-0 right-0 bottom-0 
+                    transition-all duration-500 group-hover:pb-6  group-hover:bg-black/40 group-hover:backdrop-blur">
+                    اینفینیتی۰۴
                   </div>
                 </div>
               </div>
@@ -649,6 +689,83 @@
         <div class="flex justify-center" id="similarProjectSwiperPagination" x-ref="similarProjectSwiperPagination"></div>
       </div>
      </section>
+
+
+         <!-- QUESTIONS SECTION -->
+    <section class="container-standard">
+      <div class="flex flex-col items-center gap-10 lg:gap-20">
+        <div class="flex flex-col items-center gap-4">
+          <h2 class="font-bold text-primary text-xl lg:text-3xl">
+            سوالات متداول
+          </h2>
+          <p class="text-base lg:text-xl font-light text-brand_gray-50 text-center">
+            پاسخ به پرسش‌هایی که ممکن است پیش از انتخاب یا سفارش برایتان مطرح شود.
+          </p>
+        </div>
+        <div class="w-full lg:w-2/3 flex flex-col gap-5 min-h-[450px]" x-data="{selected_index:0}" @click.away="selected_index = 0">
+          <article class="flex flex-col">
+            <h3
+              class="flex items-center justify-between text-sm lg:text-base py-3 px-4  cursor-pointer select-none bg-secondary/20 border border-secondary-50/10 text-brand_gray-100"
+              @click="selected_index !== 1 ? selected_index = 1 : selected_index = 0">
+              <span>
+                آیا مدل‌های آشپزخانه و کلوزت پاراکس قابل تغییر هستند؟
+              </span>
+              <i class="fal text-brand_gray-100" :class="{ 'fa-minus': selected_index == 1, 'fa-plus': selected_index !== 1 }"></i>
+            </h3>
+            <p class="text-sm lg:text-base leading-7 font-extralight p-3 text-brand_gray-100" x-cloak
+              x-show="selected_index == 1" x-cloak x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 -translate-y-5" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-5">
+              بله، تمام مدل‌های پاراکس بر اساس سیستم ماژولار طراحی شده‌اند و کاملاً قابل شخصی‌سازی‌اند.  شما می‌توانید رنگ، متریال، نوع درب، نورپردازی و چیدمان فضا را با توجه به نیاز و سلیقه‌ی خود انتخاب کنید. تیم طراحی پاراکس طرح نهایی را بر اساس ابعاد فضای شما تنظیم و اجرا می‌کند.
+            </p>
+          </article>
+
+          <article class="flex flex-col">
+            <h3
+              class="flex items-center justify-between text-sm lg:text-base py-3 px-4  cursor-pointer select-none bg-secondary/20 border border-secondary-50/10 text-brand_gray-100"
+              @click="selected_index !== 2 ? selected_index = 2 : selected_index = 0">
+              <span>
+                آیا پاراکس طراحی و نصب را هم انجام می‌دهد؟
+              </span>
+              <i class="fal text-brand_gray-100" :class="{ 'fa-minus': selected_index == 2, 'fa-plus': selected_index !== 2 }"></i>
+            </h3>
+            <p class="text-sm lg:text-base leading-7 font-extralight p-3 text-brand_gray-100" x-cloak
+              x-show="selected_index == 2" x-cloak x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 -translate-y-5" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-5">
+              بله، تمام مدل‌های پاراکس بر اساس سیستم ماژولار طراحی شده‌اند و کاملاً قابل شخصی‌سازی‌اند.  شما می‌توانید رنگ، متریال، نوع درب، نورپردازی و چیدمان فضا را با توجه به نیاز و سلیقه‌ی خود انتخاب کنید. تیم طراحی پاراکس طرح نهایی را بر اساس ابعاد فضای شما تنظیم و اجرا می‌کند.
+            </p>
+          </article>
+        
+          <article class="flex flex-col">
+            <h3
+              class="flex items-center justify-between text-sm lg:text-base py-3 px-4  cursor-pointer select-none bg-secondary/20 border border-secondary-50/10 text-brand_gray-100"
+              @click="selected_index !== 3 ? selected_index = 3 : selected_index = 0">
+              <span>
+                چگونه می‌توانم مدل و ترکیب دلخواهم را انتخاب کنم؟
+              </span>
+              <i class="fal text-brand_gray-100" :class="{ 'fa-minus': selected_index == 3, 'fa-plus': selected_index !== 3 }"></i>
+            </h3>
+            <p class="text-sm lg:text-base leading-7 font-extralight p-3 text-brand_gray-100" x-cloak
+              x-show="selected_index == 3" x-cloak x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 -translate-y-5" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-5">
+              بله، تمام مدل‌های پاراکس بر اساس سیستم ماژولار طراحی شده‌اند و کاملاً قابل شخصی‌سازی‌اند.  شما می‌توانید رنگ، متریال، نوع درب، نورپردازی و چیدمان فضا را با توجه به نیاز و سلیقه‌ی خود انتخاب کنید. تیم طراحی پاراکس طرح نهایی را بر اساس ابعاد فضای شما تنظیم و اجرا می‌کند.
+            </p>
+          </article>
+
+          <article class="flex flex-col">
+            <h3
+              class="flex items-center justify-between text-sm lg:text-base py-3 px-4  cursor-pointer select-none bg-secondary/20 border border-secondary-50/10 text-brand_gray-100"
+              @click="selected_index !== 4 ? selected_index = 4 : selected_index = 0">
+              <span>
+                آیا امکان بازدید حضوری از نمونه‌ها وجود دارد؟
+              </span>
+              <i class="fal text-brand_gray-100" :class="{ 'fa-minus': selected_index == 4, 'fa-plus': selected_index !== 4 }"></i>
+            </h3>
+            <p class="text-sm lg:text-base leading-7 font-extralight p-3 text-brand_gray-100" x-cloak
+              x-show="selected_index == 4" x-cloak x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 -translate-y-5" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-5">
+              بله، تمام مدل‌های پاراکس بر اساس سیستم ماژولار طراحی شده‌اند و کاملاً قابل شخصی‌سازی‌اند.  شما می‌توانید رنگ، متریال، نوع درب، نورپردازی و چیدمان فضا را با توجه به نیاز و سلیقه‌ی خود انتخاب کنید. تیم طراحی پاراکس طرح نهایی را بر اساس ابعاد فضای شما تنظیم و اجرا می‌کند.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
 
 
       <!-- CONSULTING SECTION -->
