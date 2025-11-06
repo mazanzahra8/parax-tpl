@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="css/fontawesome-all.min.css" />
 </head>
 
-<body class="bg-background" x-data="{ showMenue: 'false'}">
+<body class="bg-background" x-data="{shouldScroll : true ,showMenue: 'false'}">
 
 
   <!-- HAMBERGURMENU -->
@@ -134,10 +134,11 @@
     lastY = window.scrollY;
     scrolled = (window.scrollY > 0);
   ">
-    <nav class="z-[50] fixed top-0 left-0 right-0 transition-all duration-400 ease-in-out" :class="topbarHidden ? 'lg:-translate-y-[70px] opacity-100' : 'lg:-translate-y-0'">
+    <nav :class="(topbarHidden || !shouldScroll) && scrolled ? 'lg:-top-[71px]' : 'top-0'"
+    class="z-[50] fixed top-0 left-0 right-0 transition-all duration-400 ease-in-out" :class="topbarHidden ? 'lg:-translate-y-[70px] opacity-100' : 'lg:-translate-y-0'">
       <div :class="[
       scrolled ? 'bg-background/60 backdrop-blur-2xl' : '',
-      topbarHidden ? 'lg:opacity-0' : '']"  class="transition-all duration-400 ease-in-out py-3 border-b  border-primary-100/20">
+      (topbarHidden || !shouldScroll) && scrolled ? 'lg:opacity-0' : '']"  class="transition-all duration-400 ease-in-out py-3 border-b  border-primary-100/20">
         <div class="container-standard">
           <div class="flex items-center justify-between">
             <div class="w-1/3 block lg:hidden" @click="showMenue = 'true'">
