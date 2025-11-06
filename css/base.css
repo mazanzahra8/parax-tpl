@@ -315,3 +315,12 @@ body{
 
 /* COLLECTION3 PAGE SWIPER END */
 
+#description,
+#technicalDetails, 
+#colorPalette {
+    scroll-margin-top: 6rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
