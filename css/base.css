@@ -246,7 +246,7 @@ body{
 }
 
 .filterSelectForm option{
-  @apply bg-background-800/40  text-primary-50; 
+  @apply bg-[#212323CC]/80 backdrop-blur-xl text-primary-50 font-light; 
 }
 
 
@@ -324,3 +324,45 @@ body{
 html {
   scroll-behavior: smooth;
 }
+
+
+/* AGENT PAGE GLASS BOX  START*/
+
+
+.glassBox2{
+  @apply rounded-full size-32 backdrop-blur overflow-hidden relative flex items-center justify-center bg-representation-bg;
+}
+
+
+.glassBox2::before,
+.glassBox2::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  padding: 2px;
+  -webkit-mask: linear-gradient(white, white) content-box, linear-gradient(white, white);
+  mask: linear-gradient(white, white) content-box, linear-gradient(white, white);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  transition: opacity 0.6s ease-in-out; 
+}
+
+.glassBox2::before {
+  background: linear-gradient( #96979B26, #231F2080,#231F2080, #96979B26);
+  opacity: 1;
+}
+
+.glassBox2::after {
+  background: linear-gradient(#231F2080, #fffbe660, #fffbe660, #231F2080);
+  opacity: 0;
+}
+
+.group:hover .glassBox2::before {
+  opacity: 0;
+}
+.group:hover .glassBox2::after {
+  opacity: 1;
+}
+
+/* AGENT PAGE GLASS BOX END */
