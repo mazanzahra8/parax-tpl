@@ -9,18 +9,19 @@
   <link rel="stylesheet" href="css/fontawesome-all.min.css" />
 </head>
 
-<body class="bg-background">
+<body x-data="{shouldScroll : false}" class="bg-background">
   
-  <header  x-data="{ lastY: 0, topbarHidden: false,  scrolled: false }"
+  <header x-data="{ lastY: 0, topbarHidden: false,  scrolled: false }"
   @scroll.window="
     topbarHidden = window.scrollY > lastY;
     lastY = window.scrollY;
     scrolled = (window.scrollY > 0);
   ">
-    <nav class="z-[50] fixed top-0 left-0 right-0 transition-all duration-400 ease-in-out" :class="topbarHidden ? 'lg:-translate-y-[70px] opacity-100' : 'lg:-translate-y-0'">
+    <nav :class="(topbarHidden || !shouldScroll) && scrolled ? 'lg:-top-[71px]' : 'top-0'"
+    class="z-[50] fixed top-0 left-0 right-0 transition-all duration-400 ease-in-out" :class="topbarHidden ? 'lg:-translate-y-[70px] opacity-100' : 'lg:-translate-y-0'">
       <div :class="[
       scrolled ? 'bg-background/60 backdrop-blur-2xl' : '',
-      topbarHidden ? 'lg:opacity-0' : '']"  class="transition-all duration-400 ease-in-out py-3 border-b  border-primary-100/20">
+      (topbarHidden || !shouldScroll) && scrolled ? 'lg:opacity-0' : '']"  class="transition-all duration-400 ease-in-out py-3 border-b  border-primary-100/20">
         <div class="container-standard">
           <div class="flex items-center justify-between">
             <div class="w-1/3 block lg:hidden" @click="showMenue = 'true'">
@@ -338,8 +339,6 @@
   </section>
 
 
-
-   
    <!-- PROJECT GALLERY -->
    <section class="flex items-center my-32">
     <div class="container-standard-wide">
@@ -401,7 +400,7 @@
                     <div class="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 size-14 bg-primary flex items-center justify-center text-white text-xl cursor-pointer">
                         <i class="fal fa-play"></i>
                     </div>
-                    <img src="images/collection3-project-gallery.webp" alt="" class="w-full h-full object-cover">
+                    <img src="images/projects2-gallery.webp" alt="" class="w-full h-full object-cover">
                 </div>
               </div>
               <div class="swiper-slide">
@@ -409,7 +408,7 @@
                     <div class="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 size-14 bg-primary flex items-center justify-center text-white text-xl cursor-pointer">
                         <i class="fal fa-play"></i>
                     </div>
-                    <img src="images/collection3-project-gallery.webp" alt="" class="w-full h-full object-cover">
+                    <img src="images/projects2-gallery.webp" alt="" class="w-full h-full object-cover">
                 </div>
               </div>
               <div class="swiper-slide">
@@ -417,7 +416,7 @@
                     <div class="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 size-14 bg-primary flex items-center justify-center text-white text-xl cursor-pointer">
                         <i class="fal fa-play"></i>
                     </div>
-                    <img src="images/collection3-project-gallery.webp" alt="" class="w-full h-full object-cover">
+                    <img src="images/projects2-gallery.webp" alt="" class="w-full h-full object-cover">
                 </div>
               </div>
               <div class="swiper-slide">
@@ -425,7 +424,7 @@
                     <div class="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 size-14 bg-primary flex items-center justify-center text-white text-xl cursor-pointer">
                         <i class="fal fa-play"></i>
                     </div>
-                    <img src="images/collection3-project-gallery.webp" alt="" class="w-full h-full object-cover">
+                    <img src="images/projects2-gallery.webp" alt="" class="w-full h-full object-cover">
                 </div>
               </div>
             </div>
@@ -594,7 +593,7 @@
               <div class="swiper-slide !h-full">
                 <div class="relative w-full h-full group overflow-hidden cursor-pointer aspect-[256/200] lg:aspect-[411/304] select-none transition-all duration-[1300ms] ease-out will-change-transform">
                   <a href="#" class="absolute inset-0 z-[2]"></a>
-                  <img src="images/coll3-similar-project-img.webp" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                  <img src="images/projects2-similar-project-img.webp" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                   <div class="bg-primary text-white px-4 py-1 absolute top-2 left-2 text-sm z-[3]">
                     زعفرانیه
                   </div>
@@ -607,7 +606,7 @@
               <div class="swiper-slide !h-full">
                 <div class="relative w-full h-full group overflow-hidden cursor-pointer aspect-[256/200] lg:aspect-[411/304] select-none transition-all duration-[1300ms] ease-out will-change-transform">
                   <a href="#" class="absolute inset-0 z-[2]"></a>
-                  <img src="images/coll3-similar-project-img.webp" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                  <img src="images/projects2-similar-project-img.webp" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                   <div class="bg-primary text-white px-4 py-1 absolute top-2 left-2 text-sm z-[3]">
                     زعفرانیه
                   </div>
@@ -620,7 +619,7 @@
               <div class="swiper-slide !h-full">
                 <div class="relative w-full h-full group overflow-hidden cursor-pointer aspect-[256/200] lg:aspect-[411/304] select-none transition-all duration-[1300ms] ease-out will-change-transform">
                   <a href="#" class="absolute inset-0 z-[2]"></a>
-                  <img src="images/coll3-similar-project-img.webp" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                  <img src="images/projects2-similar-project-img.webp" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                   <div class="bg-primary text-white px-4 py-1 absolute top-2 left-2 text-sm z-[3]">
                     زعفرانیه
                   </div>
@@ -633,7 +632,7 @@
               <div class="swiper-slide !h-full">
                 <div class="relative w-full h-full group overflow-hidden cursor-pointer aspect-[256/200] lg:aspect-[411/304] select-none transition-all duration-[1300ms] ease-out will-change-transform">
                   <a href="#" class="absolute inset-0 z-[2]"></a>
-                  <img src="images/coll3-similar-project-img.webp" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                  <img src="images/projects2-similar-project-img.webp" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                   <div class="bg-primary text-white px-4 py-1 absolute top-2 left-2 text-sm z-[3]">
                     زعفرانیه
                   </div>
