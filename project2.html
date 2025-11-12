@@ -164,24 +164,25 @@
 
 
    <!-- PROJECT DETAILS -->
-   <section x-data="{ summary: false, challengesAndSolutions: false,  technicalDetails: false }"
+   <section x-data="{ activeTab1: false,  activeTab2: false, activeTab3: false,
+   }"
    class="my-16">
     <div  
       class="text-secondary-50 bg-background/60 backdrop-blur-2xl py-3 sticky top-16 z-[5]">
         <div class="container-standard">
           <ul class="productMenuList flex justify-between md:justify-normal md:gap-20 font-medium lg:font-semibold text-sm lg:text-lg">
             <li>
-                <a href="#" :class="summary && !challengesAndSolutions ? 'border-b-2 border-primary' : 'border-none'" class="pb-2">
+                <a href="#section1" :class="activeTab1 && !activeTab2 ? 'border-b-2 border-primary' : 'border-none'"  class="pb-2">
                     خلاصه پروژه
                 </a>
             </li>
             <li>
-                <a href="#" :class="challengesAndSolutions && !technicalDetails ? 'border-b-2 border-primary' : 'border-none'" class="pb-2">
+                <a href="#section2" :class="activeTab2 && !activeTab3 ? 'border-b-2 border-primary' : 'border-none'"  class="pb-2">
                     چالش ها و راه حل‌ها
                 </a>
             </li>
             <li>
-                <a href="#" :class="technicalDetails ? 'border-b-2 border-primary' : 'border-none'" class="pb-2">
+                <a href="#section3" :class="activeTab3 ? 'border-b-2 border-primary' : 'border-none'" class="pb-2">
                     جزئیات فنی و مشخصات 
                 </a>
             </li>
@@ -193,23 +194,25 @@
       <div class="flex flex-grow flex-col">
 
           <div x-data="{
-            init() {
-              const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                  this.summary = entry.isIntersecting;
-                });
-              }, { threshold: 0.7 });
-              observer.observe(this.$el);
-            }
+              updateDistance() {
+                 const offset = window.innerWidth <= 768 ? 350 : 200;
+                  const rect = this.$refs.tab1.getBoundingClientRect();
+                  this.activeTab1 = rect.top <= window.innerHeight-offset && rect.bottom >=100;
+              }
           }"
-           class="flex flex-col gap-5 py-10  border-b border-t border-secondary-50/20">
+          x-init="
+              updateDistance();
+              window.addEventListener('scroll', updateDistance.bind($data));
+              window.addEventListener('resize', updateDistance.bind($data));
+          "
+           class="tabContainer flex flex-col gap-5 py-10  border-b border-t border-secondary-50/20" id="section1">
               <div class="flex gap-1 items-center">
                   <div class="w-4 h-1 rounded-full bg-primary"></div>
                   <h2 class="text-lg font-bold text-secondary-50">
                       خلاصه پروژه
                   </h2>
               </div>
-              <div id="productPageDescription">           
+              <div x-ref="tab1">           
                  <p class="text-brand_gray-100 text-lg font-extralight py-3">
                   طراحی و اجرای یک آشپزخانه مدرن با تمرکز بر حداکثر کارایی در فضای محدود، هماهنگی متریال چوب و فلز و نورپردازی تاکیدی. نتیجه پروژه افزایش فضای ذخیره‌سازی تا ۲۰٪ و رضایت کامل کارفرما از ظاهر و عملکرد آشپزخانه بود
                  </p> 
@@ -217,23 +220,25 @@
           </div>
 
           <div x-data="{
-            init() {
-              const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                  this.challengesAndSolutions = entry.isIntersecting;
-                });
-              }, { threshold: 0.7 });
-              observer.observe(this.$el);
+            updateDistance() {
+              const offset = window.innerWidth <= 768 ? 350 : 200;
+                const rect = this.$refs.tab2.getBoundingClientRect();
+                this.activeTab2 = rect.top <= window.innerHeight-offset && rect.bottom >=100;
             }
-          }" 
-          class="flex flex-col gap-5 py-10 border-b border-secondary-50/20">
+        }"
+        x-init="
+            updateDistance();
+            window.addEventListener('scroll', updateDistance.bind($data));
+            window.addEventListener('resize', updateDistance.bind($data));
+        "
+          class="tabContainer flex flex-col gap-5 py-10 border-b border-secondary-50/20" id="section2">
               <div class="flex gap-1 items-center">
                   <div class="w-4 h-1 rounded-full bg-primary"></div>
                   <h2 class="text-lg font-bold text-secondary-50">
                       چالش‌‌ها و راه‌حل‌ها
                   </h2>
               </div>
-              <div class="flex flex-col gap-5">
+              <div class="flex flex-col gap-5" x-ref="tab2">
 
                   <div class="flex flex-col gap-3">
                       <h3 class="text-gray-100 text-base lg:text-lg">
@@ -272,17 +277,19 @@
              
           </div>
 
-          <div x-data="{
-            init() {
-              const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                  this.technicalDetails = entry.isIntersecting;
-                });
-              }, { threshold: 0.7 });
-              observer.observe(this.$el);
+          <div  x-data="{
+            updateDistance() {
+              const offset = window.innerWidth <= 768 ? 350 : 200;
+                const rect = this.$refs.tab3.getBoundingClientRect();
+                this.activeTab3 = rect.top <= window.innerHeight-offset && rect.bottom >=100;
             }
-          }" 
-          class="flex flex-col gap-5 py-10">
+        }"
+        x-init="
+            updateDistance();
+            window.addEventListener('scroll', updateDistance.bind($data));
+            window.addEventListener('resize', updateDistance.bind($data));
+        "
+          class="tabContainer flex flex-col gap-5 py-10" id="section3">
 
               <div class="flex gap-1 items-center">
                   <div class="w-4 h-1 rounded-full bg-primary"></div>
@@ -291,7 +298,7 @@
                   </h2>
               </div>
               
-              <div class="flex flex-col gap-4 lg:gap-2">
+              <div class="flex flex-col gap-4 lg:gap-2" x-ref="tab3">
                   <div class="flex items-start gap-1 text-brand_gray-100 text-lg">
                       <div class="flex items-center gap-2">
                           <div class="size-2 rounded-full bg-brand_gray-100"></div>

@@ -315,9 +315,8 @@ body{
 
 /* COLLECTION3 PAGE SWIPER END */
 
-#description,
-#technicalDetails, 
-#colorPalette {
+
+.tabContainer {
     scroll-margin-top: 6rem;
 }
 
