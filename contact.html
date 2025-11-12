@@ -252,25 +252,25 @@
     </section>
   
     <section class="my-32">
-        <div class="w-full">
-            <div class="w-full aspect-[393/201] lg:aspect-[1440/427]">
-                <div id="map" class="aspect-[393/201] lg:aspect-[1440/427] w-full z-10"></div>
-            </div>
-            <script>
-                const storeMap = new L.Map("map", {
-                key: "web.b52e571f19c64502b6cadb1c55bde4d0",
-                maptype: "neshan",
-                poi: false,
-                traffic: false,
-                center: [35.64671909723348, 51.203742751856964],
-                zoom: 14,
-                })
-                
-                let marker = L.marker([35.64671909723348, 51.203742751856964]).addTo(storeMap);
+      <div class="w-full">
+          <div class="w-full aspect-[393/201] lg:aspect-[1440/427] max-h-[300px]">
+              <div id="map" class="aspect-[393/201] lg:aspect-[1440/427] max-h-[300px] w-full z-10"></div>
+          </div>
+          <script>
+              const storeMap = new L.Map("map", {
+              key: "web.b52e571f19c64502b6cadb1c55bde4d0",
+              maptype: "standard-night",
+              poi: false,
+              traffic: false,
+              center: [35.64671909723348, 51.203742751856964],
+              zoom: 14,
+              })
+              
+              let marker = L.marker([35.64671909723348, 51.203742751856964]).addTo(storeMap);
 
-            </script>
-        </div>
-    </section>
+          </script>
+      </div>
+  </section>
     
       <!-- REPRESENTATION SECTION -->
       <section class="min-h-screen flex items-center justify-center">
