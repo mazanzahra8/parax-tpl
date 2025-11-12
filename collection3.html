@@ -301,24 +301,54 @@
    
 
    <!-- COLLECTION DETAILS -->
-   <section x-data="{ description: false, technicalDetails: false,  colorPalette: false }"
-   class="my-16">
+   <section 
+      x-data="{ 
+        activeTab: 0,
+        generalOffset: 136,
+        updateDistance() 
+        {
+          const rect1 = this.$refs.tab1.getBoundingClientRect();
+          const rect2 = this.$refs.tab2.getBoundingClientRect();
+          const rect3 = this.$refs.tab3.getBoundingClientRect();
+
+          let rect_offset1 = rect1.top - this.generalOffset;
+          let rect_offset2 = rect2.top - this.generalOffset;
+          let rect_offset3 = rect3.top - this.generalOffset;
+          
+          if( rect_offset1 < 0 && rect_offset2 > 0 ){
+            this.activeTab = 1;
+          }else if( rect_offset2 < 0 && rect_offset3 > 0 ){
+            this.activeTab = 2;
+          }else if( rect_offset3 < 0 ){
+            this.activeTab = 3;
+          }else{
+            this.activeTab = 0;
+          }
+        }
+      }" 
+      x-init="
+          updateDistance();
+          window.addEventListener('scroll', updateDistance.bind($data));
+          window.addEventListener('resize', updateDistance.bind($data));
+      "
+      class="my-16"
+   >
     <div  
       class="text-secondary-50 bg-background/60 backdrop-blur-2xl pb-3 pt-5 lg:py-3 sticky top-16 z-[5]">
         <div class="container-standard">
           <ul class="productMenuList flex justify-between md:justify-normal md:gap-20 font-medium lg:font-semibold text-sm lg:text-lg">
             <li>
-                <a href="#description" :class="description && !technicalDetails ? 'border-b-2 border-primary' : 'border-none'" class="pb-2">
+                <a href="#section1" :class="activeTab == 1 ? 'border-b-2 border-primary' : 'border-none'" class="pb-2">
                   توضیحات
                 </a>
             </li>
             <li>
-                <a href="#technicalDetails" :class="technicalDetails && !colorPalette ? 'border-b-2 border-primary' : 'border-none'" class="pb-2">
+                <a href="#section2" :class="activeTab == 2 ? 'border-b-2 border-primary' : 'border-none'" class="pb-2">
                   جزئیات فنی و مشخصات
                 </a>
             </li>
             <li>
-                <a href="#colorPalette" :class="colorPalette ? 'border-b-2 border-primary' : 'border-none'" class="pb-2">
+                <a href="#section3" :class="activeTab == 3 ? 'border-b-2 border-primary' : 'border-none'" class="pb-2">
                   پالت رنگی
                 </a>
             </li>
@@ -328,7 +358,7 @@
 
       <div class="flex flex-col">
 
-          <div class="container-standard w-full" id="description">
+          <div class="tabContainer container-standard w-full" id="section1" x-ref="tab1">
             <div x-data="{
               init() {
                 const observer = new IntersectionObserver((entries) => {
@@ -354,7 +384,7 @@
             </div>
           </div>
 
-          <div class="container-standard w-full" id="technicalDetails">
+          <div class="tabContainer container-standard w-full" id="section2" x-ref="tab2">
             <div x-data="{
               init() {
                 const observer = new IntersectionObserver((entries) => {
@@ -414,7 +444,7 @@
             </div>
           </div>
 
-          <div class="container-standard container-standard-mobile-full-width pr-5 md:pr-0 w-full" id="colorPalette">
+          <div class="tabContainer container-standard container-standard-mobile-full-width pr-5 md:pr-0 w-full" id="section3" x-ref="tab3">
             <div x-data="{
               init() {
                 const observer = new IntersectionObserver((entries) => {

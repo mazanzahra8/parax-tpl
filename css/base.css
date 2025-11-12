@@ -316,13 +316,12 @@ body{
 /* COLLECTION3 PAGE SWIPER END */
 
 
-/* .tabContainer {
+.tabContainer {
     scroll-margin-top: 6rem;
-} */
+}
 
 html {
   scroll-behavior: smooth;
-  /* @apply scroll-pt-56 lg:scroll-pt-64; */
 }
 
 
